@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3232c9ea-2d0e-4a6c-b96e-38b6e4c2fe47" name="Changes" comment="" />
+    <list default="true" id="3232c9ea-2d0e-4a6c-b96e-38b6e4c2fe47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,20 +23,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/arthur/RubymineProjects/CAMAAR",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ruby.structure.view.model.defaults.configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/arthur/RubymineProjects/CAMAAR&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Rails.CAMAAR">
     <configuration name="CAMAAR" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="CAMAAR" />
@@ -45,11 +47,7 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SCRIPT_ARGS" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="PORT" VALUE="3000" />
@@ -69,11 +67,7 @@
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="spec" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
@@ -96,11 +90,7 @@
         <env name="RAILS_ENV" value="test" />
       </envs>
       <EXTENSION ID="BundlerRunConfigurationExtension" BUNDLE_MODE="AUTO" bundleExecEnabled="true" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" runner="rcov" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="test" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
@@ -128,7 +118,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716826625036</updated>
-      <workItem from="1716826626442" duration="842000" />
+      <workItem from="1716826626442" duration="1725000" />
+      <workItem from="1716833304308" duration="1443000" />
     </task>
     <servers />
   </component>
