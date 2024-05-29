@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3232c9ea-2d0e-4a6c-b96e-38b6e4c2fe47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3232c9ea-2d0e-4a6c-b96e-38b6e4c2fe47" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +35,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/camaar/features" />
+    </key>
+  </component>
   <component name="RunManager" selected="Rails.CAMAAR">
     <configuration name="CAMAAR" type="RailsRunConfigurationType" factoryName="Rails">
       <module name="CAMAAR" />
@@ -120,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716826625036</updated>
       <workItem from="1716826626442" duration="1725000" />
-      <workItem from="1716833304308" duration="1985000" />
+      <workItem from="1716833304308" duration="2862000" />
     </task>
     <servers />
   </component>
