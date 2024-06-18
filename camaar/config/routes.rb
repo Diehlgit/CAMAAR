@@ -7,4 +7,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  devise_for :users
+
+  #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
+  resources :formularios
+  resources :templates
+  resources :alunos
+  resources :turmas
+
+  # Define a rota para a página de login como a root
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
+  # Define a rota para a homepage de users do tipo aluno e adm
+  get 'home_dicente', to: 'pages#home_dicente'
+  get 'home_docente', to: 'pages#home_docente'
 end
