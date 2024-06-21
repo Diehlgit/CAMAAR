@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
     get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
+    get "user/sign_in" => "devise/sessions#new"
   end
 
   # Define a rota para a homepage de users do tipo aluno e adm
