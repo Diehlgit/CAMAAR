@@ -67,10 +67,20 @@ end
     docente: Docente.find_by(user_id: User.find_by(nome: "administrador").id)
   )
 
+  turma2 = Turma.create!(
+    semestre: '2024.2',
+    horario: '24T34',
+    class_code: 'VA',
+    codigo: 'CIC097',
+    disciplina: Disciplina.find_by(nome: "Introdução ao Cálculo"),
+    docente: Docente.find_by(user_id: User.find_by(nome: "administrador").id)
+  )
+
   fulano = Dicente.find_by(user_id: User.find_by(nome: "fulano"))
 
   fulano.turmas << turma1
-  turma1.dicentes << fulano
+  fulano.turmas << turma2
+  #turma1.dicentes << fulano
 
   template1 = Template.create!(
     nome: 'Template de Exemplo',
@@ -109,7 +119,7 @@ end
   )
 
   provasDerivadas.turmas << turma1
-  turma1.formularios << provasDerivadas
+  #turma1.formularios << provasDerivadas
 
   def criar_resultados_formulario(formulario)
     template = formulario.template
@@ -121,7 +131,7 @@ end
           questao: questao,
           alternativa: alternativa,
           respostas: 0,
-          respostas_discursivas: ""
+          respostas_discursivas: "aluno, "
         )
       end
     end

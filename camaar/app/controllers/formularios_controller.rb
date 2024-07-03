@@ -1,6 +1,7 @@
 class FormulariosController < ApplicationController
   before_action :set_formulario, only: [:show, :edit, :update, :destroy]
   before_action :set_turmas_and_templates, only: [:new, :create]
+
   # GET /formularios
   def index
     @formularios = Formulario.all
@@ -8,11 +9,6 @@ class FormulariosController < ApplicationController
 
   # GET /formularios/1
   def show
-  end
-
-  def responder
-    @formulario = Formulario.find(params[:id])
-    @template = @formulario.template
   end
 
   # GET /formularios/new
@@ -32,8 +28,7 @@ class FormulariosController < ApplicationController
       criar_resultados_formulario(@formulario)
       redirect_to @formulario, notice: 'Formulário foi criado com sucesso.'
     else
-      @templates = Template.all
-      render :new
+      render :new, notice:"erro ao criar o formulário"
     end
   end
 
@@ -64,9 +59,13 @@ class FormulariosController < ApplicationController
 
     def set_turmas_and_templates
       @docente = current_user.docente
-      @formulario.docente = @docente
-      @turmas = @docente.turmas
-      @templates = @docente.templates
+      if @docente.present?
+        @turmas = @docente.turmas
+        @templates = @docente.templates
+      else
+        @turmas = []
+        @templates = []
+      end
     end
 
     def criar_resultados_formulario(formulario)

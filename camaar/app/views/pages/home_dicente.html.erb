@@ -29,12 +29,16 @@
       <% @turmas.each do |turma| %>
         <% turma.formularios.each do |formulario| %>
           <% if Date.today < formulario.dataDeTermino && !formulario.respondentes.include?(current_user.nome)%>
-            <%= link_to responder_formulario_path(formulario) do %>
-              <div class="assessments-box">
-                <div class="subject-name"><%= formulario.nome %></div>
-                <div class="semester"><%= turma.disciplina.nome %></div>
-                <div class="professor"><%= turma.docente.user.nome %></div>
-              </div>
+            <% resultado = formulario.resultados.find_by(formulario: formulario) %>
+              <% if resultado.present? %>
+                <%= link_to edit_resultado_path(resultado)do %>
+                  <div class="assessments-box">
+                    <div class="subject-name"><%= formulario.nome.capitalize %></div>
+                    <div class="semester"><%="aberto até: " + formulario.dataDeTermino.to_s %></div>
+                    <div class="semester"><%= turma.codigo%></div>
+                    <div class="professor"><%= turma.docente.user.nome.capitalize %></div>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>

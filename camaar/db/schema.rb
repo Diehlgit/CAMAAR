@@ -81,7 +81,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.integer "questao_id", null: false
     t.integer "alternativa_id"
     t.integer "respostas", default: 0
-    t.text "respostas_discursivas", default: ""
+    t.text "respostas_discursivas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alternativa_id"], name: "index_resultados_on_alternativa_id"
