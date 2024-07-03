@@ -1,0 +1,39 @@
+<div class="editor-box" id="CriarFormularios">
+  <%= form_with model: @formulario, local: true do |f| %>
+    <label>Nome do Formulário:
+      <%= f.text_field :nome %>
+    </label>
+
+     <label>Template:
+      <%= f.select :template_id, options_from_collection_for_select(@templates, :id, :nome) %>
+    </label>
+    
+    <%= f.hidden_field :docente_id, value: current_user.docente.id %>
+    <%= f.hidden_field :respondentes, value: "aluno, " %>
+
+    <table>
+      <tr>
+        <th style="width: 10%; padding: 5px;"></th>
+        <th style="width: 22.5%; padding: 10px;">Turma</th>
+        <th style="width: 22.5%; padding: 10px;">Data de Término</th>
+        <th style="width: 22.5%; padding: 10px;">Semestre</th>
+        <th style="width: 22.5%; padding: 10px;">Class Code</th>
+      </tr>
+      
+      <% @turmas.each do |turma| %>
+        <tr>
+          <td><%= check_box_tag "formulario[turma_ids][]", turma.id %></td>
+          <td><%= turma.codigo + ": " + turma.horario%></td>
+          <td><%= f.date_field :dataDeTermino %></td>
+          <td><%= turma.semestre %></td>
+          <td><%= turma.class_code %></td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div class='buttons'>
+      <%= f.submit "Criar", class: "send-template-button" %>
+      <%= link_to "Voltar para Home Docente", home_docente_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>

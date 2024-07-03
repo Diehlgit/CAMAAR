@@ -1,0 +1,132 @@
+<%= stylesheet_link_tag "base" %>
+<%= stylesheet_link_tag "templates" %>
+<%= stylesheet_link_tag "send_template" %>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+<body>
+  <div class="header-bar">
+    <div class="left-frame">
+      <button class="menu-button" id="menuButton" >&#9776;</button>
+      <div class="side-bar" id="sideBar">
+        <div class="select-button" id="templatesButton">Templates</div>
+        <div class="select-button" id="formulariosButton">Formularios</div>
+        <div class="select-button" id="managementButton">Gerenciamento</div>
+      </div>
+    </div>
+
+    <span class="header-text">Gerenciamento - Templates</span>
+
+    <%= form_tag(templates_path, method: "get", class: "search-bar") do %>
+        <%= text_field_tag :nome, params[:nome], placeholder: "Buscar por nome do template", class: "search-bar-input" %>
+        <%= submit_tag "&#128269;".html_safe, class: "search-icon" %>
+    <% end %>
+
+    <button class="user-button" id="userButton"><%=current_user.nome[0].upcase%></button>
+
+    <div class="sign-out" id="signOut">
+      <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  <div class="content-frame">
+    <div class="templates-container" id="templatesContainer">
+      <% if @templates.any? %>
+        <% @templates.each do |template| %>
+          <div class="templates">
+            <div class="templates-name"><%= template.nome.capitalize %></div>
+            <% formulario = FormulariosTurma.find_by(formulario: Formulario.find_by(template: template)) %>
+            <% if formulario.present? %>
+              <div class="semester"><%= formulario.turma.codigo + ": " + formulario.turma.horario %></div>
+            <% else %>
+              <div class="semester">Não aplicado</div>
+            <% end %>
+            <div class="professor"><%= template.docente.user.nome.capitalize %></div>
+            <div class="templates-buttonbox">
+              <%= link_to "", edit_template_path(template), method: :patch, class: "edit-button" %>
+              <%= link_to "", home_docente_path, method: :delete, class: "trash-button" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Nenhum template encontrado.</p>
+      <% end %>
+      <div class="add-templates-box">
+        <%= link_to '', new_template_path, class: 'add-button' %>
+      </div>
+    </div>
+
+    <div class="templates-container" id="formulariosContainer" style="display: none;">
+      <% if @formularios.any? %>
+        <% @formularios.each do |formulario| %>
+          <div class="templates">
+            <div class="templates-name"><%= formulario.nome.capitalize %></div>
+            <% formulario.turmas.each do |turma| %>
+              <div class="semester"><%= turma.codigo + ": " + turma.horario %></div>
+            <% end %>
+            <div class="professor"><%= formulario.docente.user.nome.capitalize %></div>
+            <div class="templates-buttonbox">
+              <%= link_to "resultados", formulario_path(formulario)%>
+              <%= link_to "", home_docente_path, method: :delete, class: "trash-button" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>Nenhum formulário encontrado.</p>
+      <% end %>
+      <div class="add-templates-box">
+        <%= link_to '', new_formulario_path, class: 'add-button' %>
+      </div>
+    </div>
+
+    <div class="management-contents" id="managementContents"  style="display: none;">
+      <div class="button-box">
+        <button type="button" class="button" id="btnImportarDados">Importar dados</button>
+        <button type="button" class="button" id="btnAddQuestao">Adicionar Questão</button>
+        <!--<button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>-->
+        <!--<button type="button" class="button" id="btnVerResultados">Resultados</button>-->
+      </div>
+
+      <div class="editor-box" id="ImportarDados" style="display: none;">
+        <h1>Importar Disciplinas</h1>
+
+        <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
+
+        <h1>Importar Turmas</h1>
+
+        <%= form_with url: import_turmas_path, local: true, method: :post, multipart: true do |form| %>
+          <div>
+            <%= form.label :file, "JSON File" %>
+            <%= form.file_field :file %>
+          </div>
+          <div>
+            <%= form.submit "Upload" %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="editor-box" id="AdicionarQuestao" style="display: none;">
+      
+      </div>
+
+      <div class="editor-box" id="CriarFormularios" style="display: none;">
+      
+      </div>
+
+      <div class="editor-box" id="VerResultados" style="display: none;">
+      
+      </div>
+    </div>
+  </div>
+  <%= javascript_include_tag 'menu.js' %>
+  <%= javascript_include_tag 'sign-out.js' %>
+  <%= javascript_include_tag 'template-management.js' %>
+  <%= javascript_include_tag 'opcoes-management.js' %>
+
+</body>

@@ -1,0 +1,30 @@
+<body>
+    <div class="questoes-container">
+        <div class="titulo"><%= @formulario.nome%></div>
+        <%= form_with model: @resultado, local: true, method: :patch do |f| %>
+            <% @template.questaos.each do |questao|%>
+                <div class="questao">
+                    <h3><%= questao.pergunta%></h3>
+                     <% if questao.tipo.discursiva == "true" %>
+                        <%= f.text_area :respostas_discursivas, placeholder: "Digite sua resposta aqui" %>
+                     <% else %>
+                        <% questao.alternativas.each do |alternativa| %>
+                            <div class="alternativa">
+                                <%= f.radio_button :alternativas_ids, alternativa.id, name: "alternativas_ids[#{questao.id}]", class: "form-check-input" %>
+                                <%= f.label :alternativas_ids, alternativa.texto, value: alternativa.id, class: "form-check-label" %>
+                                <!--<%= check_box_tag "formulario[turma_ids][]", alternativa.id %>
+                                <%= alternativa.texto%>
+                                <%= check_box_tag "alternativas_ids[]", alternativa.id, false, class: "form-check-input" %>
+                                <%= label_tag "alternativas_ids[]", alternativa.texto, class: "form-check-label" %>-->
+                            </div>
+                        <% end %>
+                    <% end %>
+                </div>
+            <% end %>
+
+            <div class="actions">
+                <%= f.submit "Enviar Respostas", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</body>

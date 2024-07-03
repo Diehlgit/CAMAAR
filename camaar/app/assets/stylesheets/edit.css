@@ -1,0 +1,97 @@
+/* edit.css */
+
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    height: 1500px;
+}
+.edit-container {
+    margin-top: 200px;
+}
+
+/* Estilo para o título */
+.titulo {
+    margin-bottom: 20px;
+    font-size: 50px;
+}
+
+/* Estilo para o container de questões */
+.questaos-container {
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada questão */
+.questao {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.criar-questao{
+    border: 1px solid #000000;
+    padding: 10px;
+}
+
+/* Estilo para o título de questões */
+.questao h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o campo de pergunta */
+.questao-pergunta {
+    margin-bottom: 10px;
+}
+
+.pergunta{
+    width: 200px;
+}
+/* Estilo para o container de alternativas */
+.alternativas-container {
+    margin-bottom: 10px;
+}
+
+/* Estilo para cada alternativa */
+.alternativa {
+    margin-bottom: 5px;
+}
+
+/* Estilo para o botão de deletar */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para o container de botões */
+.buttons {
+    margin-top: 20px;
+    display: flex; /* Torna o container flexível */
+    justify-content: space-between; /* Distribui os elementos horizontalmente com espaçamento entre eles */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+}
+
+/* Estilo para o botão de confirmar alteração */
+.buttons button {
+    margin-right: 10px;
+}
+
+/* Estilo para o botão de voltar */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

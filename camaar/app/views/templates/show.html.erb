@@ -1,0 +1,12 @@
+<body>
+    <h1><%= @template.nome %></h1>
+
+    <% @template.questaos.each do |questao| %>
+        <h2><%= questao.pergunta %></h2>
+        <ul>
+            <% questao.alternativas.each do |alternativa| %>
+                <li><%= alternativa.texto %></li>
+            <% end %>
+        </ul>
+    <% end %>
+</body>
