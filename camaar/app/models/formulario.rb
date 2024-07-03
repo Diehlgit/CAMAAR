@@ -3,7 +3,8 @@ class Formulario < ApplicationRecord
   belongs_to :template
 
   has_and_belongs_to_many :turmas, join_table: 'formularios_turmas'
-  has_and_belongs_to_many :resultados, join_table: 'resultados'
+  has_many :resultados
+  #has_and_belongs_to_many :resultados, join_table: 'resultados'
 
   validates :dataDeTermino, presence: true
   validates :nome, presence: true

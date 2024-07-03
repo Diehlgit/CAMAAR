@@ -31,7 +31,7 @@ class TemplatesController < ApplicationController
     @template.docente = Docente.find_by(user_id: current_user.id)
 
     if @template.save
-      redirect_to @template, notice: 'Template was successfully created.'
+      redirect_to home_docente_url, notice: 'Template was successfully created.'
     else
       render :new
     end
@@ -49,7 +49,7 @@ class TemplatesController < ApplicationController
   # DELETE /templates/1
   def destroy
     @template.destroy
-    redirect_to templates_url, notice: 'Template was successfully destroyed.'
+    redirect_to home_docente_url, notice: 'Template was successfully destroyed.'
   end
 
   private

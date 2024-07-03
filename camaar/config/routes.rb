@@ -15,12 +15,13 @@ Rails.application.routes.draw do
   }
 
   # Rota para visualizar os resultados de um formulário
-  get '/formularios/:id', to: 'formularios#show', as: 'resultados_formulario'
+  #get '/formularios/:id', to: 'formularios#show', as: 'resultados_formulario'
 
   # Rota para responder um formulário
-  get '/formularios/:id/responder', to: 'formularios#responder', as: 'responder_formulario'
+  #get '/formularios/:id/responder', to: 'formularios#responder', as: 'responder_formulario'
 
   #cria rotas para os métodos nos controllers de formulários, templates, alunos e turmas
+  resources :resultados
   resources :formularios
   resources :docentes
   resources :dicentes

@@ -48,10 +48,10 @@ class QuestaosController < ApplicationController
     @template = @questao.template # Para usar na reconstrução do template após a exclusão
 
     if @questao.destroy
-      redirect_to template_path(@template), notice: 'Questão excluída com sucesso.'
+      redirect_to edit_template_path(@template), notice: 'Questão excluída com sucesso.'
     else
       # Lógica de tratamento caso a exclusão falhe
-      redirect_to template_path(@template), alert: 'Erro ao excluir a questão.'
+      redirect_to edit_template_path(@template), alert: 'Erro ao excluir a questão.'
     end
   end
 

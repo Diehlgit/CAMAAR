@@ -96,11 +96,16 @@ body {
 .content-frame {
     display: flex;
     width: 1280px;
-    height: 772px;
+    height: 1280px;
     background-color: #DBDBDB; /* Adjust the background color as needed */
     margin-top: 60px; /* Ensure the frame starts below the header */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional, adds a shadow to the frame */
     box-sizing: border-box; /* Ensures padding is included in the width/height */
+}
+
+.templates-formularios{
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
 }
 
 .side-bar{
