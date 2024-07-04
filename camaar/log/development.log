@@ -86480,3 +86480,139 @@ Processing by TemplatesController#new as HTML
 Completed 200 OK in 95ms (Views: 89.6ms | ActiveRecord: 0.5ms | Allocations: 22045)
 
 
+Started GET "/" for 127.0.0.1 at 2024-07-04 19:08:56 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 161.5ms | Allocations: 25256)
+  Rendered layout layouts/application.html.erb (Duration: 179.1ms | Allocations: 28311)
+Completed 200 OK in 436ms (Views: 201.6ms | ActiveRecord: 9.8ms | Allocations: 55830)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-04 19:09:20 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"adm@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Completed 401 Unauthorized in 874ms (ActiveRecord: 0.5ms | Allocations: 5766)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"adm@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 3953)
+Completed 200 OK in 852ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 4678)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-04 19:09:36 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"adm@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mUser Update (5.0ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-07-04 22:09:37.175904"], ["sign_in_count", 2], ["current_sign_in_at", "2024-07-04 22:09:37.175138"], ["id", 2]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/home_docente
+Completed 303 See Other in 849ms (ActiveRecord: 10.2ms | Allocations: 5900)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-04 19:09:37 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.4ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.5ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.3ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.5ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.4ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 160.2ms | Allocations: 32989)
+  Rendered layout layouts/application.html.erb (Duration: 169.1ms | Allocations: 35487)
+Completed 200 OK in 436ms (Views: 168.9ms | ActiveRecord: 10.3ms | Allocations: 78735)
+
+
+Started GET "/templates/new" for 127.0.0.1 at 2024-07-04 19:09:43 -0300
+Processing by TemplatesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering templates/new.html.erb within layouts/application
+  [1m[36mTipo Load (0.4ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 2.7ms | Allocations: 467)
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.8ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 52.1ms | Allocations: 7720)
+  [1m[36mCACHE Tipo Load (0.1ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.9ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 7.3ms | Allocations: 1151)
+  Rendered templates/new.html.erb within layouts/application (Duration: 70.8ms | Allocations: 10980)
+  Rendered layout layouts/application.html.erb (Duration: 81.3ms | Allocations: 13640)
+Completed 200 OK in 202ms (Views: 82.4ms | ActiveRecord: 4.3ms | Allocations: 31026)
+
+
+Started GET "/templates/new" for 127.0.0.1 at 2024-07-04 19:43:11 -0300
+Processing by TemplatesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering templates/new.html.erb within layouts/application
+  [1m[36mTipo Load (3.5ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.9ms | Allocations: 179)
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.8ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 41.9ms | Allocations: 1703)
+  [1m[36mCACHE Tipo Load (0.0ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.9ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 6.6ms | Allocations: 1152)
+  Rendered templates/new.html.erb within layouts/application (Duration: 56.5ms | Allocations: 4326)
+  Rendered layout layouts/application.html.erb (Duration: 135.2ms | Allocations: 14584)
+Completed 200 OK in 142ms (Views: 131.4ms | ActiveRecord: 5.7ms | Allocations: 15258)
+
+
+Started GET "/templates/new" for 127.0.0.1 at 2024-07-04 19:43:31 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TemplatesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering templates/new.html.erb within layouts/application
+  [1m[36mTipo Load (0.5ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 9.0ms | Allocations: 484)
+  Rendered templates/_alternativa_fields.html.erb (Duration: 3.2ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 128.7ms | Allocations: 7930)
+  [1m[36mCACHE Tipo Load (0.0ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 5.3ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 17.0ms | Allocations: 1155)
+  Rendered templates/new.html.erb within layouts/application (Duration: 484.4ms | Allocations: 53386)
+  Rendered layout layouts/application.html.erb (Duration: 517.4ms | Allocations: 56404)
+Completed 200 OK in 790ms (Views: 523.7ms | ActiveRecord: 11.2ms | Allocations: 93632)
+
+
