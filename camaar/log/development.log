@@ -85577,3 +85577,906 @@ Processing by ResultadosController#edit as HTML
 Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 0.9ms | Allocations: 8858)
 
 
+Started GET "/" for 127.0.0.1 at 2024-07-03 10:08:28 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1139.9ms | Allocations: 118985)
+  Rendered layout layouts/application.html.erb (Duration: 1153.1ms | Allocations: 122014)
+Completed 200 OK in 1457ms (Views: 1221.3ms | ActiveRecord: 9.3ms | Allocations: 154254)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:08:45 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email.verdadeiro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "email.verdadeiro@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+Completed 401 Unauthorized in 78ms (ActiveRecord: 0.4ms | Allocations: 8336)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email.verdadeiro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.8ms | Allocations: 2877)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 2968)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 3507)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:20:07 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email.verdadeiro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "email.verdadeiro@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+Completed 401 Unauthorized in 102ms (ActiveRecord: 11.0ms | Allocations: 8305)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email.verdadeiro@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 217.0ms | Allocations: 25295)
+  Rendered layout layouts/application.html.erb (Duration: 220.2ms | Allocations: 25420)
+Completed 500 Internal Server Error in 262ms (ActiveRecord: 0.0ms | Allocations: 28319)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/" for 127.0.0.1 at 2024-07-03 10:20:31 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 1973)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | Allocations: 4988)
+Completed 200 OK in 237ms (Views: 35.9ms | ActiveRecord: 0.0ms | Allocations: 26176)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:20:46 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+  [1m[36mUser Update (2.5ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "current_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-07-03 13:20:47.507261"], ["sign_in_count", 2], ["current_sign_in_at", "2024-07-03 13:20:47.506617"], ["current_sign_in_ip", "127.0.0.1"], ["id", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/home_dicente
+Completed 303 See Other in 788ms (ActiveRecord: 5.3ms | Allocations: 15494)
+
+
+Started GET "/home_dicente" for 127.0.0.1 at 2024-07-03 10:20:47 -0300
+Processing by PagesController#home_dicente as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mDicente Load (0.3ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mTurmasDicente Load (0.4ms)[0m  [1m[34mSELECT "turmas_dicentes".* FROM "turmas_dicentes" WHERE "turmas_dicentes"."dicente_id" = ?[0m  [["dicente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mHABTM_Formularios Load (0.3ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."turma_id" IN (?, ?)[0m  [["turma_id", 1], ["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mFormulario Load (0.3ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_dicente.html.erb within layouts/application
+  [1m[36mResultado Load (0.4ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:32
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  Rendered pages/home_dicente.html.erb within layouts/application (Duration: 139.3ms | Allocations: 24746)
+  Rendered layout layouts/application.html.erb (Duration: 149.6ms | Allocations: 27486)
+Completed 200 OK in 502ms (Views: 149.9ms | ActiveRecord: 10.4ms | Allocations: 84254)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-07-03 10:20:52 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 19ms (ActiveRecord: 0.3ms | Allocations: 2451)
+
+
+Started GET "/" for 127.0.0.1 at 2024-07-03 10:20:52 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1214)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 3874)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 4477)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:43:17 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+Completed 401 Unauthorized in 15ms (ActiveRecord: 8.3ms | Allocations: 1278)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1876)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1967)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2341)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started GET "/" for 127.0.0.1 at 2024-07-03 10:50:01 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 203.9ms | Allocations: 25270)
+  Rendered layout layouts/application.html.erb (Duration: 226.0ms | Allocations: 28325)
+Completed 200 OK in 513ms (Views: 247.3ms | ActiveRecord: 10.6ms | Allocations: 56984)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:50:12 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:9:in `create'
+Completed 401 Unauthorized in 68ms (ActiveRecord: 0.4ms | Allocations: 4115)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2217)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 2308)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 2849)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:55:08 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 592)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"a@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2152)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2244)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 3487)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 10:55:31 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 389)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1880)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 1971)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2347)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+     6:   <div class="container">
+     7:     <div class="white-section">
+     8:       <h1>LOGIN</h1>
+     9:       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    10:         
+    11:         <div class="input-container">
+    12:           <p><%= f.label :email %></p>
+  
+app/views/devise/sessions/new.html.erb:9
+app/controllers/users/sessions_controller.rb:4:in `new'
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:00:49 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 592)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1589)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | Allocations: 4550)
+Completed 200 OK in 57ms (Views: 26.3ms | ActiveRecord: 6.6ms | Allocations: 12647)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:00:53 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms | Allocations: 377)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1196)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 3847)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 4322)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:00:57 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Completed 401 Unauthorized in 703ms (ActiveRecord: 0.5ms | Allocations: 1952)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1197)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 3848)
+Completed 200 OK in 640ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4379)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:03:06 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-07-03 14:03:06.996232"], ["sign_in_count", 3], ["current_sign_in_at", "2024-07-03 14:03:06.995592"], ["last_sign_in_at", "2024-07-03 13:20:47.506617"], ["last_sign_in_ip", "127.0.0.1"], ["id", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/home_dicente
+Completed 303 See Other in 771ms (ActiveRecord: 7.3ms | Allocations: 5566)
+
+
+Started GET "/home_dicente" for 127.0.0.1 at 2024-07-03 11:03:07 -0300
+Processing by PagesController#home_dicente as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mDicente Load (0.3ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mTurmasDicente Load (0.3ms)[0m  [1m[34mSELECT "turmas_dicentes".* FROM "turmas_dicentes" WHERE "turmas_dicentes"."dicente_id" = ?[0m  [["dicente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mTurma Load (0.6ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mHABTM_Formularios Load (0.5ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."turma_id" IN (?, ?)[0m  [["turma_id", 1], ["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_dicente.html.erb within layouts/application
+  [1m[36mResultado Load (0.3ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:32
+  [1m[36mDocente Load (0.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  Rendered pages/home_dicente.html.erb within layouts/application (Duration: 124.0ms | Allocations: 23774)
+  Rendered layout layouts/application.html.erb (Duration: 133.2ms | Allocations: 26512)
+Completed 200 OK in 415ms (Views: 133.5ms | ActiveRecord: 10.4ms | Allocations: 76650)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-07-03 11:03:11 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 15ms (ActiveRecord: 0.2ms | Allocations: 2303)
+
+
+Started GET "/" for 127.0.0.1 at 2024-07-03 11:03:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1230)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 3891)
+Completed 200 OK in 21ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 4560)
+
+
+Started GET "/" for 127.0.0.1 at 2024-07-03 11:03:14 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1207)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 3866)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 4458)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:03:59 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Completed 401 Unauthorized in 841ms (ActiveRecord: 0.2ms | Allocations: 1005)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1196)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 3847)
+Completed 200 OK in 796ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 4354)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:04:12 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"exemplo@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "exemplo@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-07-03 14:04:12.860757"], ["sign_in_count", 4], ["current_sign_in_at", "2024-07-03 14:04:12.860341"], ["last_sign_in_at", "2024-07-03 14:03:06.995592"], ["id", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/home_dicente
+Completed 303 See Other in 793ms (ActiveRecord: 2.7ms | Allocations: 3644)
+
+
+Started GET "/home_dicente" for 127.0.0.1 at 2024-07-03 11:04:12 -0300
+Processing by PagesController#home_dicente as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mDicente Load (0.1ms)[0m  [1m[34mSELECT "dicentes".* FROM "dicentes" WHERE "dicentes"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:4:in `home_dicente'
+  [1m[36mTurmasDicente Load (0.1ms)[0m  [1m[34mSELECT "turmas_dicentes".* FROM "turmas_dicentes" WHERE "turmas_dicentes"."dicente_id" = ?[0m  [["dicente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mTurma Load (0.5ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" IN (?, ?)[0m  [["id", 1], ["id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mHABTM_Formularios Load (0.4ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."turma_id" IN (?, ?)[0m  [["turma_id", 1], ["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/pages_controller.rb:6:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_dicente.html.erb within layouts/application
+  [1m[36mResultado Load (0.2ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:32
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_dicente.html.erb:39
+  Rendered pages/home_dicente.html.erb within layouts/application (Duration: 15.6ms | Allocations: 3162)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 5796)
+Completed 200 OK in 46ms (Views: 24.9ms | ActiveRecord: 2.0ms | Allocations: 10195)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2024-07-03 11:04:19 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 11ms (ActiveRecord: 0.2ms | Allocations: 1747)
+
+
+Started GET "/" for 127.0.0.1 at 2024-07-03 11:04:19 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1209)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 3869)
+Completed 200 OK in 20ms (Views: 17.2ms | ActiveRecord: 0.0ms | Allocations: 4464)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-07-03 11:09:08 -0300
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"adm@unb.br", "password"=>"[FILTERED]"}, "commit"=>"Entrar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "adm@unb.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-07-03 14:09:09.587083"], ["sign_in_count", 1], ["current_sign_in_at", "2024-07-03 14:09:09.586661"], ["last_sign_in_at", "2024-07-03 14:09:09.586661"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 2]]
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users/sessions_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/home_docente
+Completed 303 See Other in 810ms (ActiveRecord: 2.8ms | Allocations: 3658)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-03 11:09:09 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.4ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.5ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.4ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.3ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.3ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 98.4ms | Allocations: 28556)
+  Rendered layout layouts/application.html.erb (Duration: 105.3ms | Allocations: 31034)
+Completed 200 OK in 203ms (Views: 103.8ms | ActiveRecord: 4.8ms | Allocations: 49603)
+
+
+Started GET "/formularios/new" for 127.0.0.1 at 2024-07-03 11:09:22 -0300
+Processing by FormulariosController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.3ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 28.5ms | Allocations: 4603)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 7489)
+Completed 200 OK in 56ms (Views: 41.1ms | ActiveRecord: 0.8ms | Allocations: 10852)
+
+
+Started POST "/formularios" for 127.0.0.1 at 2024-07-03 11:09:29 -0300
+Processing by FormulariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "formulario"=>{"nome"=>"", "template_id"=>"1", "docente_id"=>"1", "respondentes"=>"aluno, ", "dataDeTermino"=>""}, "commit"=>"Criar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mDocente Load (2.8ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2382)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 5261)
+Completed 200 OK in 52ms (Views: 25.1ms | ActiveRecord: 4.2ms | Allocations: 11016)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-03 11:09:32 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.1ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 61.5ms | Allocations: 14253)
+  Rendered layout layouts/application.html.erb (Duration: 70.6ms | Allocations: 16730)
+Completed 200 OK in 89ms (Views: 70.4ms | ActiveRecord: 2.3ms | Allocations: 20029)
+
+
+Started GET "/formularios/1" for 127.0.0.1 at 2024-07-03 11:09:57 -0300
+Processing by FormulariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFormulario Load (0.4ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:53:in `set_formulario'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/show.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:4
+  [1m[36mQuestao Load (0.4ms)[0m  [1m[34mSELECT "questaos".* FROM "questaos" WHERE "questaos"."template_id" = ?[0m  [["template_id", 1]]
+  ↳ app/views/formularios/show.html.erb:13
+  [1m[36mTipo Load (0.3ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos" WHERE "tipos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:15
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 1]]
+  ↳ app/views/formularios/show.html.erb:17
+  [1m[36mResultado Load (0.5ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."template_id" = ? AND "resultados"."questao_id" = ? AND "resultados"."alternativa_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["template_id", 1], ["questao_id", 1], ["alternativa_id", 1], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:18
+  [1m[36mTipo Load (0.2ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos" WHERE "tipos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:15
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 2]]
+  ↳ app/views/formularios/show.html.erb:17
+  [1m[36mResultado Load (0.2ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."template_id" = ? AND "resultados"."questao_id" = ? AND "resultados"."alternativa_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["template_id", 1], ["questao_id", 2], ["alternativa_id", 2], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:18
+  [1m[36mResultado Load (0.2ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."template_id" = ? AND "resultados"."questao_id" = ? AND "resultados"."alternativa_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["template_id", 1], ["questao_id", 2], ["alternativa_id", 3], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:18
+  [1m[36mResultado Load (0.2ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."template_id" = ? AND "resultados"."questao_id" = ? AND "resultados"."alternativa_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["template_id", 1], ["questao_id", 2], ["alternativa_id", 4], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:18
+  [1m[36mResultado Load (0.3ms)[0m  [1m[34mSELECT "resultados".* FROM "resultados" WHERE "resultados"."formulario_id" = ? AND "resultados"."template_id" = ? AND "resultados"."questao_id" = ? AND "resultados"."alternativa_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["template_id", 1], ["questao_id", 2], ["alternativa_id", 5], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:18
+  [1m[36mTipo Load (0.2ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos" WHERE "tipos"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/formularios/show.html.erb:15
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 3]]
+  ↳ app/views/formularios/show.html.erb:17
+  Rendered formularios/show.html.erb within layouts/application (Duration: 241.4ms | Allocations: 46330)
+  Rendered layout layouts/application.html.erb (Duration: 256.7ms | Allocations: 49238)
+Completed 200 OK in 263ms (Views: 250.7ms | ActiveRecord: 7.7ms | Allocations: 50564)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-03 11:10:06 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.3ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.2ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 58.4ms | Allocations: 14249)
+  Rendered layout layouts/application.html.erb (Duration: 67.4ms | Allocations: 16722)
+Completed 200 OK in 89ms (Views: 67.2ms | ActiveRecord: 2.7ms | Allocations: 20030)
+
+
+Started GET "/formularios/new" for 127.0.0.1 at 2024-07-03 11:10:14 -0300
+Processing by FormulariosController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1519)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 4402)
+Completed 200 OK in 36ms (Views: 24.3ms | ActiveRecord: 1.0ms | Allocations: 6023)
+
+
+Started POST "/formularios" for 127.0.0.1 at 2024-07-03 11:10:23 -0300
+Processing by FormulariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "formulario"=>{"nome"=>"", "template_id"=>"1", "docente_id"=>"1", "respondentes"=>"aluno, ", "turma_ids"=>["1"], "dataDeTermino"=>""}, "commit"=>"Criar"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mTurma Load (0.4ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/formularios_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mDocente Load (3.9ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 2183)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 5062)
+Completed 200 OK in 66ms (Views: 24.5ms | ActiveRecord: 5.5ms | Allocations: 13410)
+
+
+Started POST "/formularios" for 127.0.0.1 at 2024-07-03 11:10:35 -0300
+Processing by FormulariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "formulario"=>{"nome"=>"teste", "template_id"=>"1", "docente_id"=>"1", "respondentes"=>"aluno, ", "turma_ids"=>["1"], "dataDeTermino"=>""}, "commit"=>"Criar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.3ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/formularios_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mDocente Load (3.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1957)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 4836)
+Completed 200 OK in 58ms (Views: 22.6ms | ActiveRecord: 4.7ms | Allocations: 10657)
+
+
+Started POST "/formularios" for 127.0.0.1 at 2024-07-03 11:10:41 -0300
+Processing by FormulariosController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "formulario"=>{"nome"=>"teste", "template_id"=>"1", "docente_id"=>"1", "respondentes"=>"aluno, ", "turma_ids"=>["1"], "dataDeTermino"=>""}, "commit"=>"Criar"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/formularios_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mDocente Load (2.8ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTemplate Load (0.1ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/formularios_controller.rb:27:in `create'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1957)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | Allocations: 4836)
+Completed 200 OK in 53ms (Views: 22.5ms | ActiveRecord: 4.2ms | Allocations: 10641)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-03 11:10:43 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.1ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 63.0ms | Allocations: 14250)
+  Rendered layout layouts/application.html.erb (Duration: 72.3ms | Allocations: 16727)
+Completed 200 OK in 91ms (Views: 72.1ms | ActiveRecord: 2.4ms | Allocations: 20047)
+
+
+Started GET "/templates/1/edit" for 127.0.0.1 at 2024-07-03 11:10:46 -0300
+Processing by TemplatesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTemplate Load (0.2ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/templates_controller.rb:58:in `set_template'
+  [1m[36mQuestao Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "questaos" WHERE "questaos"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/templates_controller.rb:22:in `edit'
+  [1m[36mQuestao Load (0.2ms)[0m  [1m[34mSELECT "questaos".* FROM "questaos" WHERE "questaos"."template_id" = ?[0m  [["template_id", 1]]
+  ↳ app/controllers/templates_controller.rb:23:in `edit'
+  [1m[36mAlternativa Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "alternativas" WHERE "alternativas"."questao_id" = ? LIMIT ?[0m  [["questao_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/templates_controller.rb:24:in `block in edit'
+  [1m[36mAlternativa Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "alternativas" WHERE "alternativas"."questao_id" = ? LIMIT ?[0m  [["questao_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/templates_controller.rb:24:in `block in edit'
+  [1m[36mAlternativa Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "alternativas" WHERE "alternativas"."questao_id" = ? LIMIT ?[0m  [["questao_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/templates_controller.rb:24:in `block in edit'
+  Rendering layout layouts/application.html.erb
+  Rendering templates/edit.html.erb within layouts/application
+  [1m[36mAlternativa Load (0.3ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 1]]
+  ↳ app/views/templates/edit.html.erb:26
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 2]]
+  ↳ app/views/templates/edit.html.erb:26
+  [1m[36mAlternativa Load (0.2ms)[0m  [1m[34mSELECT "alternativas".* FROM "alternativas" WHERE "alternativas"."questao_id" = ?[0m  [["questao_id", 3]]
+  ↳ app/views/templates/edit.html.erb:26
+  Rendered templates/edit.html.erb within layouts/application (Duration: 30.0ms | Allocations: 5125)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | Allocations: 7793)
+Completed 200 OK in 69ms (Views: 42.4ms | ActiveRecord: 2.1ms | Allocations: 12036)
+
+
+Started GET "/home_docente" for 127.0.0.1 at 2024-07-03 11:10:51 -0300
+Processing by PagesController#home_docente as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pages_controller.rb:16:in `home_docente'
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/controllers/pages_controller.rb:20:in `home_docente'
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 1]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  [1m[36mFormulario Load (0.1ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" INNER JOIN "formularios_turmas" ON "formularios"."id" = "formularios_turmas"."formulario_id" WHERE "formularios_turmas"."turma_id" = ?[0m  [["turma_id", 2]]
+  ↳ app/controllers/pages_controller.rb:27:in `flat_map'
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home_docente.html.erb within layouts/application
+  [1m[36mTemplate Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "templates" WHERE "templates"."docente_id" = ? LIMIT ?[0m  [["docente_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:32
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:33
+  [1m[36mFormulario Load (0.2ms)[0m  [1m[34mSELECT "formularios".* FROM "formularios" WHERE "formularios"."template_id" = ? LIMIT ?[0m  [["template_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mFormulariosTurma Load (0.2ms)[0m  [1m[34mSELECT "formularios_turmas".* FROM "formularios_turmas" WHERE "formularios_turmas"."formulario_id" = ? LIMIT ?[0m  [["formulario_id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:36
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:38
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:42
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" INNER JOIN "formularios_turmas" ON "turmas"."id" = "formularios_turmas"."turma_id" WHERE "formularios_turmas"."formulario_id" = ?[0m  [["formulario_id", 1]]
+  ↳ app/views/pages/home_docente.html.erb:62
+  [1m[36mCACHE Docente Load (0.0ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/pages/home_docente.html.erb:65
+  Rendered pages/home_docente.html.erb within layouts/application (Duration: 56.1ms | Allocations: 14120)
+  Rendered layout layouts/application.html.erb (Duration: 64.0ms | Allocations: 16554)
+Completed 200 OK in 84ms (Views: 63.7ms | ActiveRecord: 2.4ms | Allocations: 19873)
+
+
+Started GET "/formularios/new" for 127.0.0.1 at 2024-07-03 11:11:01 -0300
+Processing by FormulariosController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  [1m[36mDocente Load (0.2ms)[0m  [1m[34mSELECT "docentes".* FROM "docentes" WHERE "docentes"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/formularios_controller.rb:61:in `set_turmas_and_templates'
+  Rendering layout layouts/application.html.erb
+  Rendering formularios/new.html.erb within layouts/application
+  [1m[36mTemplate Load (0.3ms)[0m  [1m[34mSELECT "templates".* FROM "templates" WHERE "templates"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:8
+  [1m[36mTurma Load (0.2ms)[0m  [1m[34mSELECT "turmas".* FROM "turmas" WHERE "turmas"."docente_id" = ?[0m  [["docente_id", 1]]
+  ↳ app/views/formularios/new.html.erb:23
+  Rendered formularios/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1519)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 4402)
+Completed 200 OK in 32ms (Views: 23.2ms | ActiveRecord: 0.8ms | Allocations: 6026)
+
+
+Started GET "/templates/new" for 127.0.0.1 at 2024-07-03 11:11:24 -0300
+Processing by TemplatesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering templates/new.html.erb within layouts/application
+  [1m[36mTipo Load (0.5ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 2.5ms | Allocations: 461)
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.8ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 59.6ms | Allocations: 15504)
+  [1m[36mCACHE Tipo Load (0.1ms)[0m  [1m[34mSELECT "tipos".* FROM "tipos"[0m
+  ↳ app/views/templates/_questao_fields.html.erb:8
+  Rendered templates/_alternativa_fields.html.erb (Duration: 0.9ms | Allocations: 178)
+  Rendered templates/_questao_fields.html.erb (Duration: 6.9ms | Allocations: 1150)
+  Rendered templates/new.html.erb within layouts/application (Duration: 78.2ms | Allocations: 18577)
+  Rendered layout layouts/application.html.erb (Duration: 88.7ms | Allocations: 21299)
+Completed 200 OK in 95ms (Views: 89.6ms | ActiveRecord: 0.5ms | Allocations: 22045)
+
+
