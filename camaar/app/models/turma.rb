@@ -1,3 +1,5 @@
+##
+# turma de uma disciplina
 class Turma < ApplicationRecord
   belongs_to :disciplina
   belongs_to :docente
@@ -10,5 +12,3 @@ class Turma < ApplicationRecord
   validates :codigo, presence: true;
 
 end
-
-# este modelo é temporário e irá sofrer alterações no futuro para se adequar às especificações do trabalho

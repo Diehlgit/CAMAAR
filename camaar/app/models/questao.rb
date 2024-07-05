@@ -1,3 +1,5 @@
+##
+# uma questao que estara presente em uma avaliacao/formulario
 class Questao < ApplicationRecord
   belongs_to :template, optional: true
   belongs_to :tipo

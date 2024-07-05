@@ -1,3 +1,7 @@
+// app/javascript/packs/application.js
+require("./nested-forms/addFields");
+require("./nested-forms/removeFields");
+
 document.addEventListener('turbo:load', function() {
     document.querySelectorAll('form').forEach((form) => {
         form.addEventListener('click', function(event) {
@@ -16,3 +20,5 @@ document.addEventListener('turbo:load', function() {
         });
     });
 });
+
+

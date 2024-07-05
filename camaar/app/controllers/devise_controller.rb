@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
-# All Devise controllers are inherited from here.
+##
+# Controller base para todos os controllers do Devise.
+# Este controller fornece funcionalidades comuns para os controllers do Devise,
+# como manipulação de recursos, métodos auxiliares e gestão de mensagens de flash.
 class DeviseController < Devise.parent_controller.constantize
   include Devise::Controllers::ScopedViews
 
+  # Define o helper DeviseHelper para ser usado nos views.
   if respond_to?(:helper)
     helper DeviseHelper
   end
 
+  # Define métodos helpers para serem usados no controller.
   if respond_to?(:helper_method)
     helpers = %w(resource scope_name resource_name signed_in_resource
                  resource_class resource_params devise_mapping)
     helper_method(*helpers)
   end
 
+  # Configuração inicial do controller.
   prepend_before_action :assert_is_devise_resource!
   self.responder = Devise.responder
   respond_to :html if mimes_for_respond_to.empty?
 
-  # Override prefixes to consider the scoped view.
-  # Notice we need to check for the request due to a bug in
-  # Action Controller tests that forces _prefixes to be
-  # loaded before even having a request object.
-  #
-  # This method should be public as it is in ActionPack
-  # itself. Changing its visibility may break other gems.
+  # Sobrescreve os prefixos para considerar a view escopada.
   def _prefixes #:nodoc:
     @_prefixes ||= if self.class.scoped_views? && request && devise_mapping
       ["#{devise_mapping.scoped_path}/#{controller_name}"] + super
@@ -33,48 +33,40 @@ class DeviseController < Devise.parent_controller.constantize
     end
   end
 
-  # Override internal methods to exclude `_prefixes` from action methods since
-  # we override it above.
-  #
-  # There was an intentional change in Rails 7.1 that will allow it to become
-  # an action method because it's a public method of a non-abstract controller,
-  # but we also can't make this abstract because it can affect potential actions
-  # defined in the parent controller, so instead we ensure `_prefixes` is going
-  # to be considered internal. (and thus, won't become an action method.)
-  # Ref: https://github.com/rails/rails/pull/48699
+  # Método interno para marcar métodos internos, excluindo `_prefixes` dos métodos de ação.
   def self.internal_methods #:nodoc:
     super << :_prefixes
   end
 
   protected
 
-  # Gets the actual resource stored in the instance variable
+  # Retorna o recurso atual armazenado na variável de instância.
   def resource
     instance_variable_get(:"@#{resource_name}")
   end
 
-  # Proxy to devise map name
+  # Proxy para o nome do recurso do Devise.
   def resource_name
     devise_mapping.name
   end
   alias :scope_name :resource_name
 
-  # Proxy to devise map class
+  # Proxy para a classe do recurso do Devise.
   def resource_class
     devise_mapping.to
   end
 
-  # Returns a signed in resource from session (if one exists)
+  # Retorna um recurso autenticado da sessão (se existir).
   def signed_in_resource
     warden.authenticate(scope: resource_name)
   end
 
-  # Attempt to find the mapped route for devise based on request path
+  # Tenta encontrar a rota mapeada para o Devise com base no caminho da requisição.
   def devise_mapping
     @devise_mapping ||= request.env["devise.mapping"]
   end
 
-  # Checks whether it's a devise mapped resource or not.
+  # Verifica se é um recurso mapeado pelo Devise ou não.
   def assert_is_devise_resource! #:nodoc:
     unknown_action! <<-MESSAGE unless devise_mapping
 Could not find devise mapping for path #{request.fullpath.inspect}.
@@ -94,25 +86,23 @@ This may happen for two reasons:
 MESSAGE
   end
 
-  # Returns real navigational formats which are supported by Rails
+  # Retorna os formatos de navegação reais suportados pelo Rails.
   def navigational_formats
     @navigational_formats ||= Devise.navigational_formats.select { |format| Mime::EXTENSION_LOOKUP[format.to_s] }
   end
 
+  # Lança uma exceção informando que a ação é desconhecida.
   def unknown_action!(msg)
     logger.debug "[Devise] #{msg}" if logger
     raise AbstractController::ActionNotFound, msg
   end
 
-  # Sets the resource creating an instance variable
+  # Define o recurso criando uma variável de instância.
   def resource=(new_resource)
     instance_variable_set(:"@#{resource_name}", new_resource)
   end
 
-  # Helper for use in before_actions where no authentication is required.
-  #
-  # Example:
-  #   before_action :require_no_authentication, only: :new
+  # Método helper para uso em before_actions onde não é necessária autenticação.
   def require_no_authentication
     assert_is_devise_resource!
     return unless is_navigational_format?
@@ -131,9 +121,7 @@ MESSAGE
     end
   end
 
-  # Helper for use after calling send_*_instructions methods on a resource.
-  # If we are in paranoid mode, we always act as if the resource was valid
-  # and instructions were sent.
+  # Método helper para uso após chamar métodos send_*_instructions em um recurso.
   def successfully_sent?(resource)
     notice = if Devise.paranoid
       resource.errors.clear
@@ -148,23 +136,7 @@ MESSAGE
     end
   end
 
-  # Sets the flash message with :key, using I18n. By default you are able
-  # to set up your messages using specific resource scope, and if no message is
-  # found we look to the default scope. Set the "now" options key to a true
-  # value to populate the flash.now hash in lieu of the default flash hash (so
-  # the flash message will be available to the current action instead of the
-  # next action).
-  # Example (i18n locale file):
-  #
-  #   en:
-  #     devise:
-  #       passwords:
-  #         #default_scope_messages - only if resource_scope is not found
-  #         user:
-  #           #resource_scope_messages
-  #
-  # Please refer to README or en.yml locale file to check what messages are
-  # available.
+  # Define a mensagem de flash com a chave `key`, usando I18n.
   def set_flash_message(key, kind, options = {})
     message = find_message(kind, options)
     if options[:now]
@@ -174,14 +146,14 @@ MESSAGE
     end
   end
 
-  # Sets flash message if is_flashing_format? equals true
+  # Define a mensagem de flash se `is_flashing_format?` for verdadeiro.
   def set_flash_message!(key, kind, options = {})
     if is_flashing_format?
       set_flash_message(key, kind, options)
     end
   end
 
-  # Sets minimum password length to show to user
+  # Define o comprimento mínimo da senha para exibir ao usuário.
   def set_minimum_password_length
     if devise_mapping.validatable?
       @minimum_password_length = resource_class.password_length.min
@@ -192,7 +164,7 @@ MESSAGE
     options
   end
 
-  # Get message for given
+  # Obtém a mensagem para um tipo de chave específico.
   def find_message(kind, options = {})
     options[:scope] ||= translation_scope
     options[:default] = Array(options[:default]).unshift(kind.to_sym)
@@ -201,23 +173,25 @@ MESSAGE
     I18n.t("#{options[:resource_name]}.#{kind}", **options)
   end
 
-  # Controllers inheriting DeviseController are advised to override this
-  # method so that other controllers inheriting from them would use
-  # existing translations.
+  # Controladores que herdam de DeviseController devem sobrescrever este método
+  # para que outros controladores herdem as traduções existentes.
   def translation_scope
     "devise.#{controller_name}"
   end
 
+  # Limpa as senhas do objeto.
   def clean_up_passwords(object)
     object.clean_up_passwords if object.respond_to?(:clean_up_passwords)
   end
 
+  # Responde com formatos de navegação específicos.
   def respond_with_navigational(*args, &block)
     respond_with(*args) do |format|
       format.any(*navigational_formats, &block)
     end
   end
 
+  # Obtém os parâmetros do recurso.
   def resource_params
     params.fetch(resource_name, {})
   end

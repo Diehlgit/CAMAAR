@@ -1,3 +1,5 @@
+##
+# alternativas dentro de uma questao de um formulario
 class Alternativa < ApplicationRecord
   belongs_to :questao, optional: true
   has_and_belongs_to_many :resultados, join_table: 'resultados'

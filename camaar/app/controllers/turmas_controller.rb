@@ -1,26 +1,70 @@
+##
+# Controller responsável pelas ações relacionadas à turma.
 class TurmasController < ApplicationController
+  # Define a turma antes de executar as ações :show, :edit, :update, e :destroy.
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
 
+  ##
+  # GET /turmas
+  # Ação para listar todas as turmas.
+  #
+  # Esta ação busca todos os registros de turmas na base de dados e os
+  # armazena na variável de instância @turmas para serem exibidos na visão correspondente.
   def index
     @turmas = Turma.all
   end
 
+  ##
+  # GET /turmas/:id
+  # Ação para exibir uma turma específica.
+  #
+  # Esta ação utiliza o before_action :set_turma para buscar a turma com o ID
+  # fornecido nos parâmetros e armazená-la na variável de instância @turma
+  # para ser exibida na visão correspondente.
+  #
+  # Parâmetros:
+  # - :id - O ID da turma a ser exibida.
   def show
   end
 
+  ##
+  # GET /turmas/new
+  # Ação para inicializar uma nova turma.
+  #
+  # Esta ação cria uma nova instância de turma e busca todas as disciplinas e
+  # docentes para serem utilizados no formulário de criação de turma.
   def new
     @turma = Turma.new
     @disciplinas = Disciplina.all
     @docentes = User.where(type: 'Docente')
   end
 
-  # GET /turmas/1/edit
+  ##
+  # GET /turmas/:id/edit
+  # Ação para editar uma turma existente.
+  #
+  # Esta ação utiliza o before_action :set_turma para buscar a turma com o ID
+  # fornecido nos parâmetros e busca todas as disciplinas e docentes para
+  # serem utilizados no formulário de edição.
+  #
+  # Parâmetros:
+  # - :id - O ID da turma a ser editada.
   def edit
     @disciplinas = Disciplina.all
     @docentes = User.where(type: 'Docente')
   end
 
+  ##
   # POST /turmas
+  # Ação para criar uma nova turma.
+  #
+  # Esta ação inicializa uma nova instância de turma com os parâmetros
+  # permitidos, tenta salvá-la na base de dados e, se bem-sucedida,
+  # redireciona para a página de exibição da turma recém-criada com uma
+  # mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação.
+  #
+  # Parâmetros:
+  # - :turma - Os parâmetros da turma a ser criada.
   def create
     @turma = Turma.new(turma_params)
 
@@ -33,7 +77,19 @@ class TurmasController < ApplicationController
     end
   end
 
-  # PATCH/PUT /turmas/1
+  ##
+  # PATCH/PUT /turmas/:id
+  # Ação para atualizar uma turma existente.
+  #
+  # Esta ação utiliza o before_action :set_turma para buscar a turma com o ID
+  # fornecido nos parâmetros, tenta atualizar seus atributos com os
+  # parâmetros permitidos e salvá-la na base de dados. Se a atualização for
+  # bem-sucedida, redireciona para a página de exibição da turma com uma
+  # mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição.
+  #
+  # Parâmetros:
+  # - :id - O ID da turma a ser atualizada.
+  # - :turma - Os parâmetros da turma a serem atualizados.
   def update
     if @turma.update(turma_params)
       redirect_to @turma, notice: 'Turma foi atualizada com sucesso.'
@@ -44,11 +100,31 @@ class TurmasController < ApplicationController
     end
   end
 
+  ##
+  # DELETE /turmas/:id
+  # Ação para deletar uma turma existente.
+  #
+  # Esta ação utiliza o before_action :set_turma para buscar a turma com o ID
+  # fornecido nos parâmetros, destrui-la na base de dados e redireciona para a
+  # lista de turmas com uma mensagem de sucesso.
+  #
+  # Parâmetros:
+  # - :id - O ID da turma a ser deletada.
   def destroy
     @turma.destroy
     redirect_to turmas_url, notice: 'Turma excluída com sucesso.'
   end
 
+  ##
+  # Importa os dados de uma turma a partir de um JSON.
+  #
+  # Esta ação lê um arquivo JSON fornecido via upload, cria instâncias de
+  # usuário (docentes e discentes) e turmas com base nos dados do arquivo e
+  # os salva na base de dados. Se a importação for bem-sucedida, retorna uma
+  # mensagem de sucesso; caso contrário, retorna um erro.
+  #
+  # Parâmetros:
+  # - :file - O arquivo JSON a ser importado.
   def import
     if request.post?
       file = params[:file]
@@ -92,8 +168,8 @@ class TurmasController < ApplicationController
               curso: student_data['curso'],
               matricula: student_data['matricula'],
             )
+            ##
             # Associa o dicente à turma
-            #turma_criada.dicentes << user_dicente
             user_dicente.turmas << turma_criada
           end
         end
@@ -109,10 +185,31 @@ class TurmasController < ApplicationController
 
   private
 
+  ##
+  # Método privado para definir a turma antes de executar as ações :show, :edit, :update, e :destroy.
+  #
+  # Este método busca a turma com o ID fornecido nos parâmetros e a armazena
+  # na variável de instância @turma para ser utilizada nas ações correspondentes.
+  #
+  # Parâmetros:
+  # - :id - O ID da turma a ser buscada.
   def set_turma
     @turma = Turma.find(params[:id])
   end
 
+  ##
+  # Método privado para filtrar e permitir apenas os parâmetros permitidos
+  # para a turma.
+  #
+  # Este método é utilizado nas ações de criação e atualização para garantir
+  # que apenas os parâmetros especificados sejam aceitos.
+  #
+  # Parâmetros permitidos:
+  # - :class_code - Código da turma.
+  # - :semestre - Semestre da turma.
+  # - :horario - Horário da turma.
+  # - :disciplina_id - ID da disciplina associada.
+  # - :docente_id - ID do docente associado.
   def turma_params
     params.require(:turma).permit(:class_code, :semestre, :horario, :disciplina_id, :docente_id)
   end

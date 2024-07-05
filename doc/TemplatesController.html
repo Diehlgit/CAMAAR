@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class TemplatesController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-create">#create</a>
+    <li ><a href="#method-i-destroy">#destroy</a>
+    <li ><a href="#method-i-edit">#edit</a>
+    <li ><a href="#method-i-index">#index</a>
+    <li ><a href="#method-i-new">#new</a>
+    <li ><a href="#method-i-search">#search</a>
+    <li ><a href="#method-i-show">#show</a>
+    <li ><a href="#method-i-update">#update</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-TemplatesController">
+  <h1 id="class-TemplatesController" class="class">
+    class TemplatesController
+  </h1>
+
+  <section class="description">
+    
+<p>Controller responsável pelas ações relacionadas aos templates.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">create</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>POST /templates Ação para criar um novo template.</p>
+
+<p>Esta ação inicializa uma nova instância de template com os parâmetros permitidos, associa o template ao docente correspondente ao usuário atual, tenta salvá-lo na base de dados e, se bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template - Os parâmetros do template a ser criado.</p>
+</li></ul>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">template_params</span>)
+  <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">docente</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template foi criado com sucesso.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-destroy" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">destroy</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>DELETE /templates/:id Ação para deletar um template existente.</p>
+
+<p>Esta ação busca o template com o ID fornecido nos parâmetros e tenta destruí-lo na base de dados. Se a exclusão for bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, redireciona para a mesma página com uma mensagem de erro.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do template a ser deletado.</p>
+</li></ul>
+
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template excluído com sucesso.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&#39;Erro ao excluir o template.&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-edit" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">edit</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-index" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">index</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>GET /templates Ação para listar todos os templates.</p>
+
+<p>Esta ação busca todos os registros de templates na base de dados e os armazena na variável de instância @templates para serem exibidos na visão correspondente.</p>
+
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-ivar">@templates</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>GET /templates/new Ação para inicializar um novo template.</p>
+
+<p>Esta ação cria uma nova instância de template e inicializa uma questão e uma alternativa associadas, armazenando-as na variável de instância @template para serem utilizadas no formulário de criação de template.</p>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">questao</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">build</span>
+  <span class="ruby-identifier">questao</span>.<span class="ruby-identifier">alternativas</span>.<span class="ruby-identifier">build</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-search" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">search</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Procura um template pelo nome.</p>
+
+<p>Esta ação busca um template na base de dados pelo nome fornecido nos parâmetros. Se encontrado, redireciona para a página de edição do template; caso contrário, redireciona para a página inicial do docente com uma mensagem de aviso.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:nome - O nome do template a ser procurado.</p>
+</li></ul>
+
+          <div class="method-source-code" id="search-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">search</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">nome:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:nome</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_template_path</span>(<span class="ruby-ivar">@template</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template não encontrado&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-show" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">show</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-update" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">update</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>PATCH/PUT /templates/:id Ação para atualizar um template existente.</p>
+
+<p>Esta ação busca o template com o ID fornecido nos parâmetros, tenta atualizar seus atributos com os parâmetros permitidos e salvá-lo na base de dados. Se a atualização for bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do template a ser atualizado.</p>
+</li><li>
+<p>:template - Os parâmetros do template a serem atualizados.</p>
+</li></ul>
+
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">template_params</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Questão atualizada com sucesso.&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.3.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,3 +1,5 @@
+##
+# Template das avaliações/formulario
 class Template < ApplicationRecord
   belongs_to :docente
   has_many :questaos, class_name: 'Questao', foreign_key: :template_id, dependent: :destroy, inverse_of: :template
