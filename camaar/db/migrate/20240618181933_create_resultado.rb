@@ -6,7 +6,7 @@ class CreateResultado < ActiveRecord::Migration[7.1]
       t.references :questao, null: false, foreign_key: true
       t.references :alternativa, foreign_key: true
 
-      t.integer :respostas, default: 0
+      t.integer :quantidade_respostas, default: 0
       t.text :respostas_discursivas
 
       t.timestamps

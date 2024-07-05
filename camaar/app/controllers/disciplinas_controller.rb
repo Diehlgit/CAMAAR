@@ -53,13 +53,14 @@ class DisciplinasController < ApplicationController
       if file
         data = JSON.parse(file.read)
         data.each do |course_data|
-          disciplina = Disciplina.create!(
+          disciplina = Disciplina.find_or_create_by(
             codigo: course_data['code'],
             nome: course_data['name']
           )
 
           class_data = course_data['class']
-          Turma.create!(
+          Turma.find_or_create_by(
+            docente_id: Docente.find_by(),
             disciplina_id: disciplina.id,
             class_code: class_data['classCode'],
             semestre: class_data['semester'],

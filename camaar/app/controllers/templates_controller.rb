@@ -1,6 +1,15 @@
 class TemplatesController < ApplicationController
   before_action :set_template, only: [:show, :edit, :update, :destroy]
 
+  def search
+    @template = Template.find_by(nome: params[:nome])
+    if @template
+      redirect_to edit_template_path(@template)
+    else
+      redirect_to home_docente_url, notice: 'Template não encontrado'
+    end
+  end
+
   # GET /templates
   def index
     @templates = Template.all
@@ -8,6 +17,7 @@ class TemplatesController < ApplicationController
 
   # GET /templates/1
   def show
+
   end
 
   # GET /templates/new
@@ -19,10 +29,7 @@ class TemplatesController < ApplicationController
 
   # GET /templates/1/edit
   def edit
-    @template.questaos.build if @template.questaos.empty?
-    @template.questaos.each do |questao|
-      questao.alternativas.build if questao.alternativas.empty?
-    end
+
   end
 
   # POST /templates
@@ -40,16 +47,18 @@ class TemplatesController < ApplicationController
   # PATCH/PUT /templates/1
   def update
     if @template.update(template_params)
-      redirect_to @template, notice: 'Template was successfully updated.'
+      redirect_to home_docente_url, notice: 'questão atualizada com sucesso'
     else
       render :edit
     end
   end
 
-  # DELETE /templates/1
   def destroy
-    @template.destroy
-    redirect_to home_docente_url, notice: 'Template was successfully destroyed.'
+    if @template.destroy
+      redirect_to home_docente_url, notice: 'Template excluída com sucesso.'
+    else
+      redirect_to home_docente_url, alert: 'Erro ao excluir o Template.'
+    end
   end
 
   private

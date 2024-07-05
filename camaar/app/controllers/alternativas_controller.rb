@@ -1,6 +1,7 @@
 class AlternativasController < ApplicationController
-  before_action :get_questao
-  before_action :set_alternativa, only: [:show, :edit, :update, :destroy]
+  before_action :set_template
+  before_action :set_questao
+  before_action :set_alternativa, only: [:edit, :update, :destroy]
 
   # GET /alternativas
   def index
@@ -25,7 +26,7 @@ class AlternativasController < ApplicationController
     @alternativa = @questao.alternativas.build(alternativa_params)
 
     if @alternativa.save
-      redirect_to @alternativa, notice: 'Alternativa was successfully created.'
+      redirect_to edit_template_path(@template), notice: 'Alternativa was successfully created.'
     else
       render :new
     end
@@ -34,7 +35,7 @@ class AlternativasController < ApplicationController
   # PATCH/PUT /alternativas/1
   def update
     if @alternativa.update(alternativa_params)
-      redirect_to @alternativa, notice: 'Alternativa was successfully updated.'
+      redirect_to edit_template_path(@template), notice: 'Alternativa was successfully updated.'
     else
       render :edit
     end
@@ -43,17 +44,21 @@ class AlternativasController < ApplicationController
   # DELETE /alternativas/1
   def destroy
     @alternativa.destroy
-    redirect_to alternativas_url, notice: 'Alternativa was successfully destroyed.'
+    redirect_to edit_template_path(@template), notice: 'Alternativa deletada com sucesso.'
   end
 
   private
+    def set_template
+      @template = Template.find(params[:template_id])
+    end
+
+    def set_questao
+      @questao = Questao.find(params[:questao_id])
+    end
+
 
     def set_alternativa
       @alternativa = Alternativa.find(params[:id])
-    end
-
-    def get_questao
-      @questao = Questao.find(params[:questao_id])
     end
 
     def alternativa_params

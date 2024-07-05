@@ -1,0 +1,14 @@
+<body>
+     <%= form_with(model: [@template, @questao], local: true) do |questao_form| %>
+        <%= questao_form.label :pergunta, "Título da Questão" %>
+        <%= questao_form.text_field :pergunta %>
+
+        <%= questao_form.label :tipo_id, "Tipo da Questão" %>
+        <%= questao_form.collection_select :tipo_id, Tipo.all, :id, :nome %>
+
+        <div class="buttons">
+            <%= questao_form.submit "Criar Questão", class: 'btn btn-success' %>
+            <%= link_to "Voltar para Edit Template", edit_template_path(@template), class: "btn btn-secondary" %>
+        </div>
+     <% end %>
+</body>

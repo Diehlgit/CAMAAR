@@ -5,7 +5,7 @@
             <div class='titulo'>
                 <%= "Editar Template: " + @template.nome %>
             </div>
-            <%= form_with(model: @template, local: true, method: :patch) do |template_form| %>
+            <%= form_with model: @template, method: :patch, local: true do |template_form| %>
                 <div class="nome-container">
                     <%= template_form.label :nome, "Nome do Template" %>
                     <%= template_form.text_field :nome, class: 'form-control' %>
@@ -19,37 +19,36 @@
                                 <div class='questao-pergunta'>
                                     <%= questao_form.label :pergunta, "Título da Questão:" %>
                                     <%= questao_form.text_field :pergunta, class: 'form-control pergunta' %>
+
+                                    <%= questao_form.label :tipo_id, "Tipo da Questão" %>
+                                    <%= questao_form.collection_select :tipo_id, Tipo.all, :id, :nome %>
                                 </div>
 
                                 <h3>Editar Alternativas</h3>
+                                <%= link_to "+", new_template_questao_alternativa_path(@template, questao), class: 'add-alternativa' %>
                                 <div class='alternativas-container'>
                                     <% questao.alternativas.each do |alternativa| %>
                                         <div class='alternativa'>
                                             <%= questao_form.fields_for :alternativas, alternativa do |alternativa_form| %>
                                                 <%= alternativa_form.text_field :texto, class: 'form-control' %>
+                                                <%= link_to "", template_questao_alternativa_path(@template, questao, alternativa), method: :delete, data: { confirm: "Tem certeza que deseja deletar esta alternativa?" }, class: "trash-button" %>
                                             <% end %>
                                         </div>
                                     <% end %>
                                 </div>
-                                <%= link_to "Deletar", template_questao_path(@template, questao), method: :delete, class: "delete-button" %>
-
-                                <!--<%= button_to "Deletar", template_questao_path(@template, questao), method: :delete, class: "delete-button", data: { confirm: "Tem certeza que deseja deletar esta questão?" } %>-->
+                                <div class="buttons">
+                                    <%= link_to "Deletar", template_questao_path(@template, questao), method: :delete, class: "delete-button" %>
+                                </div>
                             <% end %>
                         </div>
                     <% end %>
+                    <%= link_to "+", new_template_questao_path(@template), class: 'add-questao' %>
                 </div>
-    
-                <div class='buttons'>
-                    <%= template_form.submit "Confirmar Alteração no Template", class: 'btn btn-success' %>
+                <div class="buttons">
+                    <%= template_form.submit "Confirmar Alterações", class:'btn btn-secondary' %>
                     <%= link_to "Voltar para Home Docente", home_docente_path, class: 'btn btn-secondary' %>
                 </div>
             <% end %>
         </div>
-        <!--<div class='criar-container'>
-            <h2>Adicionar Questões</h2>
-            <div class='criar-questao'>
-                
-            </div>
-        </div>-->
     </div>
 </body>

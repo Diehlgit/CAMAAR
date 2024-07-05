@@ -1,8 +1,12 @@
 class ResultadosController < ApplicationController
-  before_action :set_resultado, only: [:edit, :update]
+  before_action :set_resultado, only: [:show, :edit, :update]
   def new
     @formulario = Formulario.find(params[:formulario_id])
     @resultado = Resultado.new(formulario: @formulario)
+  end
+
+  def show
+
   end
 
   def create
@@ -28,29 +32,42 @@ class ResultadosController < ApplicationController
     @formulario = @resultado.formulario
     @template = @formulario.template
 
-    @template.questaos.each do |questao|
-      if questao.tipo.discursiva
-        resposta_discursiva = params[:respostas_discursivas][questao.id.to_s]
-        @resultado.update(respostas_discursivas: @resultado.respostas_discursivas + "###" + resposta_discursiva)
-      else
-        alternativa_ids = params[:alternativas_ids] || []
-        alternativa_ids.each do |id|
-          resultado = Resultado.find_or_create_by(
-            formulario: @formulario,
-            template: @template,
-            questao: questao,
-            alternativa_id: id
-          )
-          @resultado.update(respostas: @resultado.respostas + 1)
+    if @formulario.respondentes.include?(current_user.nome)
+      flash[:notice] = "Formulário já respondido"
+      redirect_to home_dicente_url
+    else
+      if params[:respostas].present?
+        # Processa as respostas discursivas
+        if params[:respostas][:discursivas].present?
+          params[:respostas][:discursivas].each do |questao_id, resposta|
+            resultado = Resultado.find_or_create_by(
+              formulario: @formulario,
+              template: @template,
+              questao_id: questao_id
+            )
+            resultado.update(respostas_discursivas: (resultado.respostas_discursivas.to_s + "###" + resposta))
+          end
         end
+
+        # Processa as respostas alternativas
+        if params[:respostas][:alternativas_ids].present?
+          params[:respostas][:alternativas_ids].each do |questao_id, alternativa_id|
+            resultado = Resultado.find_or_create_by(
+              formulario: @formulario,
+              template: @template,
+              questao_id: questao_id,
+              alternativa_id: alternativa_id
+            )
+            resultado.update(quantidade_respostas: resultado.quantidade_respostas.to_i + 1)
+          end
+        end
+        respondentes = @formulario.respondentes
+        respondentes += ", " + current_user.nome
+        @formulario.update(respondentes: respondentes)
+
+        redirect_to home_dicente_url, notice: "Formulário respondido com sucesso."
       end
     end
-
-    respondentes = @formulario.respondentes
-    respondentes += ", " + current_user.nome
-    @formulario.update(respondentes: respondentes)
-
-    redirect_to home_dicente_url, notice: "Formulário respondido com sucesso."
   end
 
   private
