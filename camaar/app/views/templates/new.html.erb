@@ -2,19 +2,18 @@
 <body>
   <div class='edit-container'>
     <div class='titulo'>
-      <%= "Criar Novo Template" %>
+       Criar Novo Template
     </div>
     <div class='criar-template'>
       <%= form_with model: @template, method: :post, local: true do |template_form| %>
-        <%= template_form.label :nome, "Nome do Template:" %>
-        <%= template_form.text_field :nome %>
+        <%= template_form.label :nome, "Nome do Template:", class: 'label-field' %>
+        <%= template_form.text_field :nome, class: 'text-field' %>
 
-        <h2>Adicionar Questões</h2>
         <div class='criar-questao'>
           <%= template_form.fields_for :questaos do |questao_form| %>
             <%= render "questao_fields", f: questao_form %>
           <% end %>
-          <%= link_to_add_fields("Adicionar Questão", template_form, :questaos, class:'add_fields') %>
+          <%= link_to_add_fields("Adicionar Questão", template_form, :questaos, class:'') %> <%#quando calcula a classe disso faz 'add_fields' + :class em algum lugar!?%>
         </div>
         <%= template_form.submit "Criar Template", class: 'btn btn-success' %>
       <% end %>

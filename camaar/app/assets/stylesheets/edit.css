@@ -1,24 +1,53 @@
 /* edit.css */
 
 /* Estilo para o corpo da página */
-body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    height: 1500px;
-}
+body {}
+
+/* Estilo para o container do editor */
 .edit-container {
-    margin-top: 200px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    position: relative;
+    margin: auto;
+    box-shadow: 0 0 10px 0 #00000080;
+    gap: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.form-control {
+    border: 0;
+    border-bottom: 2px solid #2E2F30;
 }
 
 /* Estilo para o título */
 .titulo {
-    margin-bottom: 20px;
+    margin: 0 auto 10px auto;
     font-size: 50px;
+}
+
+/* Estilo para inputs de text-field */
+.text-field {
+    padding: 5px;
+    color: rgb(150,150,150);
+    border: 0;
+    border-bottom: 2px solid rgb(200,200,200);
+    outline: 0;
+    font-size: 16px;
+}
+/* Estilo para label dos inputs */
+.label-field {
+    font-size: 16px;
+    font-weight: 500;
 }
 
 /* Estilo para o container de questões */
 .questaos-container {
     margin-bottom: 20px;
+}
+
+.criar-template{
+    gap: 10px;
 }
 
 /* Estilo para cada questão */
@@ -29,14 +58,45 @@ body {
 }
 
 .criar-questao{
-    border: 1px solid #000000;
+    margin: 15px;
     padding: 10px;
+    border: 0;
+}
+.criar-alternativa{
+    margin: 10px 0 10px 0;
 }
 
 /* Estilo para o título de questões */
 .questao h2 {
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+/* Estilo para o seletor de tipo de questão*/
+select {
+    background-color: #FFFFFF;
+    border-color: #DBDBDB;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/* Estilo para o botão de remover alternativa e remover questão*/
+.remove_fields {
+    background-color: #6C2365;
+    padding: 2px 4px 2px 4px;
+    border-radius: 2px;
+    color: #E0E0E0;
+    text-decoration: none;
+    float: right;
+}
+
+.add_fields {
+    background-color: #6C2365;
+    padding: 2px 4px 2px 4px;
+    border-radius: 2px;
+    color: #E0E0E0;
+    text-decoration: none;
 }
 
 /* Estilo para o campo de pergunta */
@@ -54,7 +114,7 @@ body {
 
 /* Estilo para cada alternativa */
 .alternativa {
-    margin-bottom: 5px;
+    margin: 25px 0 25px 0;
 }
 
 /* Estilo para o botão de deletar */
@@ -81,6 +141,16 @@ body {
 /* Estilo para o botão de confirmar alteração */
 .buttons button {
     margin-right: 10px;
+
+}
+
+/* Estilo para o botão de criar template */
+.btn-success {
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #6C2365;
+    color: #E0E0E0;
+    float: right;
 }
 
 /* Estilo para o botão de voltar */
@@ -90,6 +160,7 @@ body {
     padding: 10px 20px;
     text-decoration: none;
     border: none;
+    justify-self: end;
 }
 
 .btn-secondary:hover {

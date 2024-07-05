@@ -18,6 +18,7 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 2;
 }
 
 .left-frame {
@@ -110,10 +111,11 @@ body {
 .side-bar{
     width: 257px;
     height: 772px;
-    top: 60px;
     background-color: #FFFFFF;
     display: none; /*inicialmente oculto*/
     position: absolute;
+    top: 50px;
+    left: -20px;
     z-index:1;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
