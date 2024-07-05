@@ -95,42 +95,6 @@
 
 
 
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
-       <header>
-         <h3>Public Instance Methods</h3>
-       </header>
-
-      <div id="method-i-create" class="method-detail ">
-        <div class="method-header">
-          <div class="method-heading">
-            <span class="method-name">create</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-        </div>
-
-        <div class="method-description">
-          
-            <div class="method-calls-super">
-              Calls superclass method
-              
-            </div>
-
-          <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/registrations_controller.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-  <span class="ruby-keyword">super</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resource</span><span class="ruby-operator">|</span>
-    <span class="ruby-constant">UserRegistrationService</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">resource</span>)
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-        </div>
-
-
-      </div>
-
-    </section>
-
      <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Protected Instance Methods</h3>
@@ -146,12 +110,65 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Configuração dos parâmetros permitidos para registro de usuário.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Define quais parâmetros são permitidos durante o processo de registro de usuário.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Permite os parâmetros &#39;nome&#39; e &#39;role&#39; durante o registro de usuário.</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">RegistrationsController</span>.<span class="ruby-identifier">configure_permitted_parameters</span>
+</pre>
 
           <div class="method-source-code" id="configure_permitted_parameters-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/registrations_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/registrations_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">configure_permitted_parameters</span>
   <span class="ruby-identifier">devise_parameter_sanitizer</span>.<span class="ruby-identifier">permit</span>(<span class="ruby-value">:sign_up</span>, <span class="ruby-value">keys:</span> [<span class="ruby-value">:nome</span>, <span class="ruby-value">:role</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-create" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">create</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Criação de um novo registro de usuário.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Chama o método de criação padrão de Devise para registro de usuário.</p>
+</li><li>
+<p>Após a criação bem-sucedida do usuário, executa o serviço de notificação de novo usuário.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Rota: POST /users</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">RegistrationsController</span>.<span class="ruby-identifier">create</span>
+</pre>
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/registrations_controller.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">resource</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">UserRegistrationService</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">resource</span>)
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>

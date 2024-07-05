@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas ao user</p>
+<p>Controller responsável pelas ações relacionadas ao usuário.</p>
 
   </section>
 
@@ -117,13 +117,19 @@
         </div>
 
         <div class="method-description">
-          <p>POST /users</p>
+          <p>POST /users Ação para criar um novo usuário.</p>
+
+<p>Esta ação determina o tipo de usuário a ser criado (<a href="Docente.html"><code>Docente</code></a>, <a href="Dicente.html"><code>Dicente</code></a> ou <a href="User.html"><code>User</code></a> padrão) com base nos parâmetros fornecidos. Cria uma instância do tipo correspondente, preenche com os parâmetros permitidos e tenta salvar na base de dados. Se o salvamento for bem-sucedido, redireciona para a página de exibição do usuário recém-criado com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:user - Os parâmetros do usuário a ser criado.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-  <span class="ruby-comment">##</span>
-  <span class="ruby-comment"># Determine qual tipo de usuário está sendo criado com base nos parâmetros</span>
+  <span class="ruby-comment"># Determine qual tipo de usuário está sendo criado com base nos parâmetros.</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Docente&#39;</span>
     <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_params</span>.<span class="ruby-identifier">except</span>(<span class="ruby-value">:type</span>, <span class="ruby-value">:matricula</span>, <span class="ruby-value">:curso</span>))
   <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">user_params</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Dicente&#39;</span>
@@ -154,10 +160,17 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /users/:id</p>
+          <p>DELETE /users/:id Ação para deletar um usuário existente.</p>
+
+<p>Esta ação busca o usuário com o ID fornecido nos parâmetros, o destrói na base de dados e redireciona para a lista de usuários com uma mensagem de sucesso.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do usuário a ser deletado.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 63</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy</span>
@@ -179,10 +192,17 @@
         </div>
 
         <div class="method-description">
-          <p>GET /users/:id/edit</p>
+          <p>GET /users/:id/edit Ação para editar um usuário existente.</p>
+
+<p>Esta ação busca o usuário com o ID fornecido nos parâmetros e o armazena na variável de instância @user para ser utilizado no formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do usuário a ser editado.</p>
+</li></ul>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -202,10 +222,12 @@
         </div>
 
         <div class="method-description">
-          <p>GET /users</p>
+          <p>GET /users Ação para listar todos os usuários.</p>
+
+<p>Esta ação busca todos os registros de usuários na base de dados e os armazena na variável de instância @users para serem exibidos na visão correspondente.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -225,10 +247,12 @@
         </div>
 
         <div class="method-description">
-          <p>GET /users/new</p>
+          <p>GET /users/new Ação para inicializar um novo usuário.</p>
+
+<p>Esta ação cria uma nova instância de usuário e a armazena na variável de instância @user para ser utilizada no formulário de criação de usuário.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -248,10 +272,17 @@
         </div>
 
         <div class="method-description">
-          <p>GET /users/:id</p>
+          <p>GET /users/:id Ação para exibir um usuário específico.</p>
+
+<p>Esta ação busca o usuário com o ID fornecido nos parâmetros e o armazena na variável de instância @user para ser exibido na visão correspondente.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do usuário a ser exibido.</p>
+</li></ul>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -271,10 +302,19 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /users/:id</p>
+          <p>PATCH/PUT /users/:id Ação para atualizar um usuário existente.</p>
+
+<p>Esta ação busca o usuário com o ID fornecido nos parâmetros, tenta atualizar seus atributos com os parâmetros permitidos e salva na base de dados. Se a atualização for bem-sucedida, redireciona para a página de exibição do usuário com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do usuário a ser atualizado.</p>
+</li><li>
+<p>:user - Os parâmetros do usuário a serem atualizados.</p>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users_controller.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">user_params</span>)

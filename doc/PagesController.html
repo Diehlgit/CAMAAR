@@ -87,7 +87,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas as paginas</p>
+<p>Controller responsável pelas ações relacionadas às páginas.</p>
 
   </section>
 
@@ -112,17 +112,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Ação para exibir a página inicial do usuário do tipo dicente.</p>
+
+<p>Esta ação busca o registro do dicente associado ao usuário atualmente logado. Se um dicente for encontrado, busca todas as turmas associadas a esse dicente através da relação <a href="TurmasDicente.html"><code>TurmasDicente</code></a>. Se não houver turmas associadas, define @turmas como uma lista vazia.</p>
 
           <div class="method-source-code" id="home_dicente-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/pages_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/pages_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">home_dicente</span>
   <span class="ruby-ivar">@dicente</span> = <span class="ruby-constant">Dicente</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@dicente</span>.<span class="ruby-identifier">present?</span>
     <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">TurmasDicente</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">dicente_id:</span> <span class="ruby-ivar">@dicente</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">includes</span>(<span class="ruby-value">turma:</span> <span class="ruby-value">:formularios</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:turma</span>)
-    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">present?</span>
-      <span class="ruby-ivar">@turmas</span> = []
-    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@turmas</span> = [] <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">present?</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-ivar">@turmas</span> = []
   <span class="ruby-keyword">end</span>
@@ -143,25 +143,19 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Ação para exibir a página inicial do usuário do tipo docente.</p>
+
+<p>Esta ação busca o registro do docente associado ao usuário atualmente logado. Se um docente for encontrado, busca todas as turmas associadas a esse docente através da relação <a href="Turma.html"><code>Turma</code></a>. Também busca os templates associados a esse docente. Além disso, busca os formulários associados às turmas do docente, acessando os formulários de cada turma através da relação entre <a href="Turma.html"><code>Turma</code></a> e <a href="Formulario.html"><code>Formulario</code></a>.</p>
+
+<p>Se nenhum docente for encontrado, define @turmas, @templates e @formularios como listas vazias.</p>
 
           <div class="method-source-code" id="home_docente-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/pages_controller.rb, line 17</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/pages_controller.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">home_docente</span>
   <span class="ruby-ivar">@docente</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@docente</span>.<span class="ruby-identifier">present?</span>
-    <span class="ruby-comment">##</span>
-    <span class="ruby-comment"># Busca todas as classes do docente</span>
     <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">docente_id:</span> <span class="ruby-ivar">@docente</span>.<span class="ruby-identifier">id</span>)
-    <span class="ruby-ivar">@turmas</span> = [] <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">present?</span>
-
-    <span class="ruby-comment">##</span>
-    <span class="ruby-comment"># Busca os templates</span>
     <span class="ruby-ivar">@templates</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">docente_id:</span> <span class="ruby-ivar">@docente</span>.<span class="ruby-identifier">id</span>)
-
-    <span class="ruby-comment">##</span>
-    <span class="ruby-comment"># Aqui você pode acessar os formulários através das classes</span>
-    <span class="ruby-comment"># Exemplo de como acessar os formulários de cada classe:</span>
     <span class="ruby-ivar">@formularios</span> = <span class="ruby-ivar">@turmas</span>.<span class="ruby-identifier">flat_map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">turma</span><span class="ruby-operator">|</span> <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">formularios</span> }
   <span class="ruby-keyword">else</span>
     <span class="ruby-ivar">@turmas</span> = []

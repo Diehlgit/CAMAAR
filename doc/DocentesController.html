@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos docentes</p>
+<p>Controller responsável pelas ações relacionadas aos docentes.</p>
 
   </section>
 
@@ -117,10 +117,10 @@
         </div>
 
         <div class="method-description">
-          <p>POST /docentes</p>
+          <p>POST /docentes Ação para criar um novo docente juntamente com o usuário associado.</p>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_params</span>)
   <span class="ruby-ivar">@docente</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">docente_params</span>)
@@ -148,10 +148,10 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /docentes/1</p>
+          <p>DELETE /docentes/1 Ação para excluir um docente existente.</p>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 55</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@docente</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">docentes_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Docente foi excluído com sucesso.&#39;</span>
@@ -172,10 +172,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /docentes/1/edit</p>
+          
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -194,10 +194,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /docentes</p>
+          <p>GET /docentes Ação para exibir todos os docentes.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@docentes</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -217,7 +217,7 @@
         </div>
 
         <div class="method-description">
-          <p>GET /docentes/new</p>
+          <p>GET /docentes/new Ação para exibir o formulário de criação de um novo docente, incluindo também o formulário para criação de um novo usuário.</p>
 
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 19</span>
@@ -241,10 +241,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /docentes/1</p>
+          
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -263,7 +263,7 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /docentes/1</p>
+          <p>PATCH/PUT /docentes/1 Ação para atualizar os dados de um docente existente.</p>
 
           <div class="method-source-code" id="update-source">
             <pre><span class="ruby-comment"># File camaar/app/controllers/docentes_controller.rb, line 45</span>

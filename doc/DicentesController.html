@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos discentes</p>
+<p>Controller responsável pelas ações relacionadas aos discentes.</p>
 
   </section>
 
@@ -117,15 +117,16 @@
         </div>
 
         <div class="method-description">
-          <p>POST /dicentes</p>
+          <p>POST /dicentes Ação para criar um novo discente com base nos parâmetros recebidos do formulário de criação.</p>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_params</span>)
   <span class="ruby-ivar">@dicente</span> = <span class="ruby-constant">Dicente</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">dicente_params</span>)
+
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@dicente</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@dicente</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente was successfully created.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@dicente</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente foi criado com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
   <span class="ruby-keyword">end</span>
@@ -146,13 +147,13 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /dicentes/:id</p>
+          <p>DELETE /dicentes/:id Ação para excluir um discente existente.</p>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@dicente</span>.<span class="ruby-identifier">destroy</span>
-  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dicientes_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente was successfully destroyed.&#39;</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dicientes_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente foi excluído com sucesso.&#39;</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -170,10 +171,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /dicentes/:id/edit</p>
+          <p>GET /dicentes/:id/edit Ação para exibir o formulário de edição dos dados de um discente existente.</p>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 33</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -192,10 +193,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /dicentes</p>
+          <p>GET /dicentes Ação para listar todos os discentes cadastrados.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@dicentes</span> = <span class="ruby-constant">Dicente</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -215,10 +216,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /dicentes/new</p>
+          <p>GET /dicentes/new Ação para exibir o formulário de criação de um novo discente.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@dicente</span> = <span class="ruby-constant">Dicente</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
@@ -239,10 +240,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /dicentes/:id</p>
+          <p>GET /dicentes/:id Ação para exibir os detalhes de um discente específico.</p>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -261,13 +262,13 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /dicentes/:id</p>
+          <p>PATCH/PUT /dicentes/:id Ação para atualizar os dados de um discente existente com base nos parâmetros recebidos do formulário de edição.</p>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 37</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/dicentes_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@dicente</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">dicente_params</span>)
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@dicente</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente was successfully updated.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@dicente</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Dicente foi atualizado com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
   <span class="ruby-keyword">end</span>

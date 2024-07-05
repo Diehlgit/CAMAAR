@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos formularios</p>
+<p>Controller responsável pelas ações relacionadas aos formulários.</p>
 
   </section>
 
@@ -117,10 +117,10 @@
         </div>
 
         <div class="method-description">
-          <p>POST /formularios</p>
+          <p>POST /formularios Ação para criar um novo formulário.</p>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">formulario_params</span>)
 
@@ -128,7 +128,7 @@
     <span class="ruby-identifier">criar_resultados_formulario</span>(<span class="ruby-ivar">@formulario</span>)
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@formulario</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Formulário foi criado com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>, <span class="ruby-value">notice:</span><span class="ruby-string">&quot;erro ao criar o formulário&quot;</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Erro ao criar o formulário.&quot;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -147,10 +147,10 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /formularios/1</p>
+          <p>DELETE /formularios/1 Ação para excluir um formulário existente.</p>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 55</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">formularios_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Formulário foi excluído com sucesso.&#39;</span>
@@ -171,10 +171,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /formularios/1/edit</p>
+          
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -193,10 +193,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /formularios</p>
+          <p>GET /formularios Ação para exibir todos os formulários.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@formularios</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -216,7 +216,7 @@
         </div>
 
         <div class="method-description">
-          <p>GET /formularios/new</p>
+          <p>GET /formularios/new Ação para exibir o formulário de criação de um novo formulário.</p>
 
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 20</span>
@@ -239,10 +239,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /formularios/1</p>
+          
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -261,7 +261,7 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /formularios/1</p>
+          <p>PATCH/PUT /formularios/1 Ação para atualizar os dados de um formulário existente.</p>
 
           <div class="method-source-code" id="update-source">
             <pre><span class="ruby-comment"># File camaar/app/controllers/formularios_controller.rb, line 44</span>

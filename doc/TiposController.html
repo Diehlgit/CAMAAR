@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos tipos de um formulario</p>
+<p>Controller responsável pelas ações relacionadas aos tipos de um formulário.</p>
 
   </section>
 
@@ -117,10 +117,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /tipos Ação para criar um novo tipo.</p>
+
+<p>Esta ação inicializa uma nova instância de tipo com os parâmetros permitidos, tenta salvá-la na base de dados e, se bem-sucedida, redireciona para a página de exibição do tipo recém-criado; caso contrário, renderiza novamente o formulário de criação com uma mensagem de erro.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:tipo - Os parâmetros do tipo a ser criado.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tipo_params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tipo</span>.<span class="ruby-identifier">save</span>
@@ -146,10 +153,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>DELETE /tipos/:id Ação para deletar um tipo existente.</p>
+
+<p>Esta ação busca o tipo com o ID fornecido nos parâmetros, o destrói na base de dados e redireciona para a lista de tipos.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do tipo a ser deletado.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 39</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@tipo</span>.<span class="ruby-identifier">destroy</span>
@@ -171,10 +185,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /tipos/:id/edit Ação para editar um tipo existente.</p>
+
+<p>Esta ação busca o tipo com o ID fornecido nos parâmetros e o armazena na variável de instância @tipo para ser utilizado no formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do tipo a ser editado.</p>
+</li></ul>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -194,10 +215,12 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /tipos Ação para listar todos os tipos.</p>
+
+<p>Esta ação busca todos os registros de tipos na base de dados e os armazena na variável de instância @tipos para serem exibidos na visão correspondente.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@tipos</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -217,10 +240,12 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /tipos/new Ação para inicializar um novo tipo.</p>
+
+<p>Esta ação cria uma nova instância de tipo e a armazena na variável de instância @tipo para ser utilizada no formulário de criação de tipo.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -240,10 +265,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /tipos/:id Ação para exibir um tipo específico.</p>
+
+<p>Esta ação busca o tipo com o ID fornecido nos parâmetros e o armazena na variável de instância @tipo para ser exibido na visão correspondente.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do tipo a ser exibido.</p>
+</li></ul>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -263,10 +295,19 @@
         </div>
 
         <div class="method-description">
-          
+          <p>PATCH/PUT /tipos/:id Ação para atualizar um tipo existente.</p>
+
+<p>Esta ação busca o tipo com o ID fornecido nos parâmetros, tenta atualizar seus atributos com os parâmetros permitidos e salvá-lo na base de dados. Se a atualização for bem-sucedida, redireciona para a página de exibição do tipo; caso contrário, renderiza novamente o formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do tipo a ser atualizado.</p>
+</li><li>
+<p>:tipo - Os parâmetros do tipo a serem atualizados.</p>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 30</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/tipos_controller.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@tipo</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tipo</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">tipo_params</span>)

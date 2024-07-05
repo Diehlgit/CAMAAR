@@ -112,12 +112,28 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Cria uma sessão de usuário após a autenticação.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Autentica o usuário utilizando as opções de autenticação fornecidas pelo Warden.</p>
+</li><li>
+<p>Define uma mensagem de flash indicando que o usuário foi autenticado com sucesso, se o formato de navegação for navegacional.</p>
+</li><li>
+<p>Registra o usuário como autenticado.</p>
+</li><li>
+<p>Redireciona o usuário de volta para a página de origem (se existir) ou para a página definida após o login.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Rota: POST /users/sign_in</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">create</span>
+</pre>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
-  <span class="ruby-comment"># ainda não sei para que isso serve, mas é para criar uma sessão de usuário</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">resource</span> = <span class="ruby-identifier">warden</span>.<span class="ruby-identifier">authenticate!</span>(<span class="ruby-identifier">auth_options</span>)
   <span class="ruby-identifier">set_flash_message</span>(<span class="ruby-value">:notice</span>, <span class="ruby-value">:signed_in</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">is_navigational_format?</span>
   <span class="ruby-identifier">sign_in</span>(<span class="ruby-identifier">resource_name</span>, <span class="ruby-identifier">resource</span>)
@@ -125,7 +141,7 @@
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>]
     <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to</span>] = <span class="ruby-keyword">nil</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">respond_with</span> <span class="ruby-identifier">resource</span>, <span class="ruby-value">:location</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
+    <span class="ruby-identifier">respond_with</span> <span class="ruby-identifier">resource</span>, <span class="ruby-value">location:</span> <span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -144,12 +160,26 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Renderiza a página de login.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Cria uma nova instância do recurso (usuário) utilizando os parâmetros de login fornecidos.</p>
+</li><li>
+<p>Limpa os dados de senha do recurso para segurança.</p>
+</li><li>
+<p>Renderiza o template ‘devise/sessions/new’ para exibir o formulário de login.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Rota: GET /users/sign_in</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">new</span>
+</pre>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
-  <span class="ruby-comment"># rota que leva para a root do programa</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">resource</span> = <span class="ruby-identifier">resource_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">sign_in_params</span>)
   <span class="ruby-identifier">clean_up_passwords</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-keyword">yield</span> <span class="ruby-identifier">resource</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
@@ -178,14 +208,27 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Define o caminho para onde redirecionar após o login.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Verifica se o recurso autenticado é um dicente ou docente e redireciona para a página inicial correspondente.</p>
+</li><li>
+<p>Caso contrário, utiliza o método padrão de Devise para o redirecionamento.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Após o login bem-sucedido, redireciona para a página inicial do usuário.</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
+</pre>
             <div class="method-calls-super">
               Calls superclass method
               
             </div>
 
           <div class="method-source-code" id="after_sign_in_path_for-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_sign_in_path_for</span>(<span class="ruby-identifier">resource</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">resource</span>.<span class="ruby-identifier">dicente?</span>
     <span class="ruby-identifier">home_dicente_path</span>
@@ -211,10 +254,21 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Define o caminho para onde redirecionar após o logout.</p>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Sempre redireciona para a página inicial da aplicação após o logout.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Após o logout, redireciona para a página inicial.</span>
+<span class="ruby-constant">Users</span><span class="ruby-operator">::</span><span class="ruby-constant">SessionsController</span>.<span class="ruby-identifier">after_sign_out_path_for</span>(<span class="ruby-identifier">resource_or_scope</span>)
+</pre>
 
           <div class="method-source-code" id="after_sign_out_path_for-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/users/sessions_controller.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">after_sign_out_path_for</span>(<span class="ruby-identifier">resource_or_scope</span>)
   <span class="ruby-identifier">root_path</span>
 <span class="ruby-keyword">end</span></pre>

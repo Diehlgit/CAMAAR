@@ -92,7 +92,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas as questoes dos formularios</p>
+<p>Controller responsável pelas ações relacionadas às questões dos formulários.</p>
 
   </section>
 
@@ -117,16 +117,24 @@
         </div>
 
         <div class="method-description">
-          <p>POST /questaos</p>
+          <p>POST /templates/:template_id/questaos Ação para criar uma nova questão associada a um template específico.</p>
+
+<p>Esta ação inicializa uma nova instância de questão com os parâmetros permitidos, tenta salvá-la na base de dados e, se bem-sucedida, redireciona para a edição do template com uma mensagem de sucesso. Caso contrário, renderiza novamente o formulário de criação com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template_id - O ID do template ao qual a nova questão está associada.</p>
+</li><li>
+<p>:questao - Os parâmetros da questão a ser criada.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 32</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@questao</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">build</span>(<span class="ruby-identifier">questao_params</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@questao</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-comment">##</span>
-    <span class="ruby-comment">#redirect_to @questao, notice: &#39;Questao was successfully created.&#39;</span>
+    <span class="ruby-comment"># Redireciona para a edição do template com uma mensagem de sucesso.</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_template_path</span>(<span class="ruby-ivar">@template</span>)
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
@@ -148,10 +156,19 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /questaos/1</p>
+          <p>DELETE /templates/:template_id/questaos/:id Ação para excluir uma questão existente.</p>
+
+<p>Esta ação exclui uma questão específica e redireciona para a edição do template com uma mensagem de sucesso. Caso a exclusão falhe, redireciona com uma mensagem de erro.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template_id - O ID do template ao qual a questão está associada.</p>
+</li><li>
+<p>:id - O ID da questão a ser excluída.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 56</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@questao</span>.<span class="ruby-identifier">destroy</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">edit_template_path</span>(<span class="ruby-ivar">@template</span>), <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Questão excluída com sucesso.&#39;</span>
@@ -175,12 +192,11 @@
         </div>
 
         <div class="method-description">
-          <p>GET /questaos/1/edit</p>
+          
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -198,10 +214,17 @@
         </div>
 
         <div class="method-description">
-          <p>GET /questaos</p>
+          <p>GET /templates/:template_id/questaos Ação para listar todas as questões associadas a um template específico.</p>
+
+<p>Esta ação busca todas as questões associadas ao template identificado pelo ID fornecido nos parâmetros e as armazena na variável de instância @questaos.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template_id - O ID do template ao qual as questões estão associadas.</p>
+</li></ul>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@questaos</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questaos</span>
 <span class="ruby-keyword">end</span></pre>
@@ -221,10 +244,17 @@
         </div>
 
         <div class="method-description">
-          <p>GET /questaos/new</p>
+          <p>GET /templates/:template_id/questaos/new Ação para inicializar uma nova questão associada a um template específico.</p>
+
+<p>Esta ação cria uma nova instância de questão associada ao template identificado pelo ID fornecido nos parâmetros e armazena-a na variável de instância @questao.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template_id - O ID do template ao qual a nova questão está associada.</p>
+</li></ul>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@questao</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">build</span>
   <span class="ruby-ivar">@tipos</span> = <span class="ruby-constant">Tipo</span>.<span class="ruby-identifier">all</span>
@@ -248,9 +278,8 @@
           
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -268,13 +297,24 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /questaos/1</p>
+          <p>PATCH/PUT /templates/:template_id/questaos/:id Ação para atualizar uma questão existente.</p>
+
+<p>Esta ação atualiza uma questão específica com os parâmetros permitidos e persiste as alterações na base de dados. Se a atualização for bem-sucedida, redireciona para a exibição do template com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template_id - O ID do template ao qual a questão está associada.</p>
+</li><li>
+<p>:id - O ID da questão a ser atualizada.</p>
+</li><li>
+<p>:questao - Os parâmetros da questão a ser atualizada.</p>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/questaos_controller.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@questao</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">questao_params</span>)
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@template</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Questao was successfully updated.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@template</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Questao foi atualizada com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
   <span class="ruby-keyword">end</span>

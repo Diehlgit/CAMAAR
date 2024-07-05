@@ -1,4 +1,4 @@
-Fri, 05 Jul 2024 18:26:56 -0300
+Fri, 05 Jul 2024 18:56:49 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/README.md	Tue, 28 May 2024 20:36:05 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/Dockerfile	Tue, 28 May 2024 20:36:05 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/Gemfile	Fri, 05 Jul 2024 17:31:13 -0300
@@ -19,23 +19,23 @@ Fri, 05 Jul 2024 18:26:56 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/channels/application_cable/connection.rb	Tue, 28 May 2024 20:36:05 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/alternativas_controller.rb	Fri, 05 Jul 2024 18:26:43 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/application_controller.rb	Fri, 05 Jul 2024 09:20:04 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/devise_controller.rb	Fri, 05 Jul 2024 09:20:04 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/dicentes_controller.rb	Fri, 05 Jul 2024 17:59:29 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/disciplinas_controller.rb	Fri, 05 Jul 2024 17:59:02 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/docentes_controller.rb	Fri, 05 Jul 2024 17:57:07 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/formularios_controller.rb	Fri, 05 Jul 2024 17:56:31 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/pages_controller.rb	Fri, 05 Jul 2024 17:56:00 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/passwords_controller.rb	Fri, 05 Jul 2024 17:55:36 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/questaos_controller.rb	Fri, 05 Jul 2024 17:55:18 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/resultados_controller.rb	Fri, 05 Jul 2024 17:54:01 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/templates_controller.rb	Fri, 05 Jul 2024 17:53:29 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/tipos_controller.rb	Fri, 05 Jul 2024 17:52:31 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/turmas_controller.rb	Fri, 05 Jul 2024 17:51:49 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/devise_controller.rb	Fri, 05 Jul 2024 18:50:57 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/dicentes_controller.rb	Fri, 05 Jul 2024 18:50:07 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/disciplinas_controller.rb	Fri, 05 Jul 2024 18:49:38 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/docentes_controller.rb	Fri, 05 Jul 2024 18:49:04 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/formularios_controller.rb	Fri, 05 Jul 2024 18:48:00 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/pages_controller.rb	Fri, 05 Jul 2024 18:45:13 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/passwords_controller.rb	Fri, 05 Jul 2024 18:44:42 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/questaos_controller.rb	Fri, 05 Jul 2024 18:43:45 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/resultados_controller.rb	Fri, 05 Jul 2024 18:42:26 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/templates_controller.rb	Fri, 05 Jul 2024 18:41:22 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/tipos_controller.rb	Fri, 05 Jul 2024 18:38:52 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/turmas_controller.rb	Fri, 05 Jul 2024 18:37:00 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users/application_controller.rb	Fri, 05 Jul 2024 09:20:04 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users/registrations_controller.rb	Fri, 05 Jul 2024 09:20:04 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users/sessions_controller.rb	Fri, 05 Jul 2024 09:20:04 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users_controller.rb	Fri, 05 Jul 2024 17:50:40 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/helpers/application_helper.rb	Fri, 05 Jul 2024 09:20:04 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users/registrations_controller.rb	Fri, 05 Jul 2024 18:55:58 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users/sessions_controller.rb	Fri, 05 Jul 2024 18:55:30 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/controllers/users_controller.rb	Fri, 05 Jul 2024 18:35:42 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/helpers/application_helper.rb	Fri, 05 Jul 2024 18:52:14 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/helpers/pages_helper.rb	Fri, 05 Jul 2024 09:20:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/helpers/user/sessions_helper.rb	Fri, 05 Jul 2024 09:20:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/javascript/application.js	Fri, 05 Jul 2024 09:20:04 -0300
@@ -51,7 +51,7 @@ Fri, 05 Jul 2024 18:26:56 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/javascript/template-management.js	Fri, 05 Jul 2024 09:20:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/jobs/application_job.rb	Tue, 28 May 2024 20:36:05 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/mailers/application_mailer.rb	Tue, 28 May 2024 20:36:05 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/mailers/password_mailer.rb	Fri, 05 Jul 2024 09:20:04 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/mailers/password_mailer.rb	Fri, 05 Jul 2024 18:52:55 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/mailers/user_mailer.rb	Fri, 05 Jul 2024 09:20:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/models/alternativa.rb	Fri, 05 Jul 2024 17:49:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/models/application_record.rb	Tue, 28 May 2024 20:36:05 -0300
@@ -67,7 +67,7 @@ Fri, 05 Jul 2024 18:26:56 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/models/turma.rb	Fri, 05 Jul 2024 17:46:20 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/models/turmas_dicente.rb	Fri, 05 Jul 2024 09:20:04 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/models/user.rb	Fri, 05 Jul 2024 15:42:33 -0300
-/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/services/user_registration_services.rb	Fri, 05 Jul 2024 09:20:04 -0300
+/home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/app/services/user_registration_services.rb	Fri, 05 Jul 2024 18:53:42 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/bin/bundle	Wed, 19 Jun 2024 18:48:47 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/bin/cucumber	Wed, 19 Jun 2024 18:51:14 -0300
 /home/guilherme/Documentos/UnB/ES/CAMAAR/camaar/bin/docker-entrypoint	Tue, 28 May 2024 20:36:05 -0300

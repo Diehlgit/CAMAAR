@@ -93,7 +93,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos templates</p>
+<p>Controller responsável pelas ações relacionadas aos templates.</p>
 
   </section>
 
@@ -118,16 +118,23 @@
         </div>
 
         <div class="method-description">
-          <p>POST /templates</p>
+          <p>POST /templates Ação para criar um novo template.</p>
+
+<p>Esta ação inicializa uma nova instância de template com os parâmetros permitidos, associa o template ao docente correspondente ao usuário atual, tenta salvá-lo na base de dados e, se bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:template - Os parâmetros do template a ser criado.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 45</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">template_params</span>)
   <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">docente</span> = <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">user_id:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
 
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template was successfully created.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template foi criado com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:new</span>
   <span class="ruby-keyword">end</span>
@@ -148,15 +155,22 @@
         </div>
 
         <div class="method-description">
-          
+          <p>DELETE /templates/:id Ação para deletar um template existente.</p>
+
+<p>Esta ação busca o template com o ID fornecido nos parâmetros e tenta destruí-lo na base de dados. Se a exclusão for bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, redireciona para a mesma página com uma mensagem de erro.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do template a ser deletado.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 66</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">destroy</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template excluída com sucesso.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Template excluído com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&#39;Erro ao excluir o Template.&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">alert:</span> <span class="ruby-string">&#39;Erro ao excluir o template.&#39;</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -175,12 +189,11 @@
         </div>
 
         <div class="method-description">
-          <p>GET /templates/1/edit</p>
+          
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 39</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -198,10 +211,12 @@
         </div>
 
         <div class="method-description">
-          <p>GET /templates</p>
+          <p>GET /templates Ação para listar todos os templates.</p>
+
+<p>Esta ação busca todos os registros de templates na base de dados e os armazena na variável de instância @templates para serem exibidos na visão correspondente.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@templates</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -221,10 +236,12 @@
         </div>
 
         <div class="method-description">
-          <p>GET /templates/new</p>
+          <p>GET /templates/new Ação para inicializar um novo template.</p>
+
+<p>Esta ação cria uma nova instância de template e inicializa uma questão e uma alternativa associadas, armazenando-as na variável de instância @template para serem utilizadas no formulário de criação de template.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-identifier">questao</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">questaos</span>.<span class="ruby-identifier">build</span>
@@ -246,10 +263,17 @@
         </div>
 
         <div class="method-description">
-          <p>procura um template pelo nome</p>
+          <p>Procura um template pelo nome.</p>
+
+<p>Esta ação busca um template na base de dados pelo nome fornecido nos parâmetros. Se encontrado, redireciona para a página de edição do template; caso contrário, redireciona para a página inicial do docente com uma mensagem de aviso.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:nome - O nome do template a ser procurado.</p>
+</li></ul>
 
           <div class="method-source-code" id="search-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">search</span>
   <span class="ruby-ivar">@template</span> = <span class="ruby-constant">Template</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">nome:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:nome</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>
@@ -274,12 +298,11 @@
         </div>
 
         <div class="method-description">
-          <p>GET /templates/1</p>
+          
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -297,13 +320,22 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /templates/1</p>
+          <p>PATCH/PUT /templates/:id Ação para atualizar um template existente.</p>
+
+<p>Esta ação busca o template com o ID fornecido nos parâmetros, tenta atualizar seus atributos com os parâmetros permitidos e salvá-lo na base de dados. Se a atualização for bem-sucedida, redireciona para a página inicial do docente com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do template a ser atualizado.</p>
+</li><li>
+<p>:template - Os parâmetros do template a serem atualizados.</p>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 58</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/templates_controller.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">template_params</span>)
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;questão atualizada com sucesso&#39;</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">home_docente_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Questão atualizada com sucesso.&#39;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
   <span class="ruby-keyword">end</span>

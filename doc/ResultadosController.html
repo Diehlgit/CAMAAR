@@ -90,7 +90,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas aos resultados de um formulario</p>
+<p>Controller responsável pelas ações relacionadas aos resultados de um formulário.</p>
 
   </section>
 
@@ -115,10 +115,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>POST /resultados Ação para criar um novo resultado.</p>
+
+<p>Esta ação inicializa uma nova instância de resultado com os parâmetros permitidos, tenta salvá-la na base de dados e, se bem-sucedida, calcula a nota associada ao resultado e a persiste novamente. Se a criação for bem-sucedida, redireciona para a exibição do resultado com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:resultado - Os parâmetros do resultado a ser criado.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 45</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@resultado</span> = <span class="ruby-constant">Resultado</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">resultado_params</span>)
 
@@ -147,10 +154,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /resultados/:id/edit Ação para editar um resultado existente.</p>
+
+<p>Esta ação busca o resultado com o ID fornecido nos parâmetros e inicializa as variáveis de instância necessárias para o formulário de edição, incluindo o formulário associado, o template do formulário e as questões do template.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do resultado a ser editado.</p>
+</li></ul>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@formulario</span> = <span class="ruby-ivar">@resultado</span>.<span class="ruby-identifier">formulario</span>
   <span class="ruby-ivar">@template</span> = <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">template</span>
@@ -172,10 +186,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /formularios/:formulario_id/resultados/new Ação para inicializar um novo resultado associado a um formulário específico.</p>
+
+<p>Esta ação cria uma nova instância de resultado associada ao formulário identificado pelo ID fornecido nos parâmetros e armazena-a na variável de instância @resultado.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:formulario_id - O ID do formulário ao qual o resultado está associado.</p>
+</li></ul>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@formulario</span> = <span class="ruby-constant">Formulario</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:formulario_id</span>])
   <span class="ruby-ivar">@resultado</span> = <span class="ruby-constant">Resultado</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">formulario:</span> <span class="ruby-ivar">@formulario</span>)
@@ -196,12 +217,18 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /resultados/:id Ação para exibir um resultado específico.</p>
+
+<p>Esta ação é usada para exibir um resultado com o ID fornecido nos parâmetros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do resultado a ser exibido.</p>
+</li></ul>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
-
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
@@ -219,10 +246,21 @@
         </div>
 
         <div class="method-description">
-          
+          <p>PATCH/PUT /resultados/:id Ação para atualizar um resultado existente.</p>
+
+<p>Esta ação busca o resultado com o ID fornecido nos parâmetros, verifica se o usuário atual já respondeu ao formulário associado, processa as respostas discursivas e alternativas fornecidas nos parâmetros e as persiste na base de dados. Se a atualização for bem-sucedida, redireciona para a página inicial do discente com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição com os erros.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID do resultado a ser atualizado.</p>
+</li><li>
+<p>:respostas - As respostas fornecidas pelo usuário, incluindo as discursivas</p>
+
+<pre>e as alternativas.</pre>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 33</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/resultados_controller.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@formulario</span> = <span class="ruby-ivar">@resultado</span>.<span class="ruby-identifier">formulario</span>
   <span class="ruby-ivar">@template</span> = <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">template</span>
@@ -256,6 +294,8 @@
           <span class="ruby-identifier">resultado</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">quantidade_respostas:</span> <span class="ruby-identifier">resultado</span>.<span class="ruby-identifier">quantidade_respostas</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
         <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Atualiza a lista de respondentes do formulário</span>
       <span class="ruby-identifier">respondentes</span> = <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">respondentes</span>
       <span class="ruby-identifier">respondentes</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;, &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">nome</span>
       <span class="ruby-ivar">@formulario</span>.<span class="ruby-identifier">update</span>(<span class="ruby-value">respondentes:</span> <span class="ruby-identifier">respondentes</span>)

@@ -1,6 +1,22 @@
+##
+# Módulo contendo métodos auxiliares para serem usados em toda a aplicação.
 module ApplicationHelper
+  ##
+  # Cria um link dinâmico para adicionar campos a um formulário usando JavaScript.
+  #
+  # Params:
+  # - +name+ (String): Texto do link.
+  # - +f+ (FormBuilder): Objeto do formulário associado aos campos.
+  # - +association+ (Symbol): Nome da associação com o modelo principal.
+  # - +args+ (Hash): Argumentos opcionais para o link (como classes CSS).
+  #
+  # Retorna:
+  # - String: Um link HTML formatado com atributos data para uso pelo JavaScript.
+  #
+  # Exemplo de Uso:
+  #   link_to_add_fields('Adicionar Questão', form_builder_object, :questions, class: 'btn btn-primary')
   def link_to_add_fields(name, f, association, **args)
-    # Cria um novo objeto associado ao modelo relacionado (como :questão para @templaate)
+    # Cria um novo objeto associado ao modelo relacionado (como :questions para @template)
     new_object = f.object.send(association).klass.new
 
     # Obtém o ID único do objeto para garantir que a chave no array associado seja única
@@ -12,6 +28,6 @@ module ApplicationHelper
     end
 
     # Cria um link que contém atributos data para serem utilizados pelo JavaScript
-    link_to(name, "#", class: "add_fields" + args[:class], data: { id: id, fields: fields.gsub("\n", "")})
+    link_to(name, "#", class: "add_fields #{args[:class]}", data: { id: id, fields: fields.gsub("\n", "") })
   end
 end

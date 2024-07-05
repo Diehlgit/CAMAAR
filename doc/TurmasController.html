@@ -93,7 +93,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas a turma</p>
+<p>Controller responsável pelas ações relacionadas à turma.</p>
 
   </section>
 
@@ -118,10 +118,17 @@
         </div>
 
         <div class="method-description">
-          <p>POST /turmas</p>
+          <p>POST /turmas Ação para criar uma nova turma.</p>
+
+<p>Esta ação inicializa uma nova instância de turma com os parâmetros permitidos, tenta salvá-la na base de dados e, se bem-sucedida, redireciona para a página de exibição da turma recém-criada com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de criação.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:turma - Os parâmetros da turma a ser criada.</p>
+</li></ul>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">turma_params</span>)
 
@@ -149,10 +156,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>DELETE /turmas/:id Ação para deletar uma turma existente.</p>
+
+<p>Esta ação utiliza o before_action :set_turma para buscar a turma com o ID fornecido nos parâmetros, destrui-la na base de dados e redireciona para a lista de turmas com uma mensagem de sucesso.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID da turma a ser deletada.</p>
+</li></ul>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 113</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">turmas_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Turma excluída com sucesso.&#39;</span>
@@ -173,10 +187,17 @@
         </div>
 
         <div class="method-description">
-          <p>GET /turmas/1/edit</p>
+          <p>GET /turmas/:id/edit Ação para editar uma turma existente.</p>
+
+<p>Esta ação utiliza o before_action :set_turma para buscar a turma com o ID fornecido nos parâmetros e busca todas as disciplinas e docentes para serem utilizados no formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID da turma a ser editada.</p>
+</li></ul>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 21</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
   <span class="ruby-ivar">@disciplinas</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">all</span>
   <span class="ruby-ivar">@docentes</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">type:</span> <span class="ruby-string">&#39;Docente&#39;</span>)
@@ -197,10 +218,17 @@
         </div>
 
         <div class="method-description">
-          <p>importa os dados de uma turma a partir de um json</p>
+          <p>Importa os dados de uma turma a partir de um JSON.</p>
+
+<p>Esta ação lê um arquivo JSON fornecido via upload, cria instâncias de usuário (docentes e discentes) e turmas com base nos dados do arquivo e os salva na base de dados. Se a importação for bem-sucedida, retorna uma mensagem de sucesso; caso contrário, retorna um erro.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:file - O arquivo JSON a ser importado.</p>
+</li></ul>
 
           <div class="method-source-code" id="import-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span>
     <span class="ruby-identifier">file</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file</span>]
@@ -246,7 +274,6 @@
           )
           <span class="ruby-comment">##</span>
           <span class="ruby-comment"># Associa o dicente à turma</span>
-          <span class="ruby-comment">#turma_criada.dicentes &lt;&lt; user_dicente</span>
           <span class="ruby-identifier">user_dicente</span>.<span class="ruby-identifier">turmas</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">turma_criada</span>
         <span class="ruby-keyword">end</span>
       <span class="ruby-keyword">end</span>
@@ -275,10 +302,12 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /turmas Ação para listar todas as turmas.</p>
+
+<p>Esta ação busca todos os registros de turmas na base de dados e os armazena na variável de instância @turmas para serem exibidos na visão correspondente.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -298,10 +327,12 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /turmas/new Ação para inicializar uma nova turma.</p>
+
+<p>Esta ação cria uma nova instância de turma e busca todas as disciplinas e docentes para serem utilizados no formulário de criação de turma.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@disciplinas</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">all</span>
@@ -323,10 +354,17 @@
         </div>
 
         <div class="method-description">
-          
+          <p>GET /turmas/:id Ação para exibir uma turma específica.</p>
+
+<p>Esta ação utiliza o before_action :set_turma para buscar a turma com o ID fornecido nos parâmetros e armazená-la na variável de instância @turma para ser exibida na visão correspondente.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID da turma a ser exibida.</p>
+</li></ul>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -345,10 +383,19 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /turmas/1</p>
+          <p>PATCH/PUT /turmas/:id Ação para atualizar uma turma existente.</p>
+
+<p>Esta ação utiliza o before_action :set_turma para buscar a turma com o ID fornecido nos parâmetros, tenta atualizar seus atributos com os parâmetros permitidos e salvá-la na base de dados. Se a atualização for bem-sucedida, redireciona para a página de exibição da turma com uma mensagem de sucesso; caso contrário, renderiza novamente o formulário de edição.</p>
+
+<p>Parâmetros:</p>
+<ul><li>
+<p>:id - O ID da turma a ser atualizada.</p>
+</li><li>
+<p>:turma - Os parâmetros da turma a serem atualizados.</p>
+</li></ul>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/turmas_controller.rb, line 93</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@turma</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">turma_params</span>)
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@turma</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Turma foi atualizada com sucesso.&#39;</span>

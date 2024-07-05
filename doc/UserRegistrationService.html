@@ -86,6 +86,8 @@
 
   <section class="description">
     
+<p>Serviço responsável por lidar com o registro de usuários.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -109,10 +111,30 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Método de classe para registrar um usuário e enviar um e-mail de boas-vindas se o usuário for persistido com sucesso.</p>
+
+<p>Params:</p>
+<ul><li>
+<p>user (<a href="User.html"><code>User</code></a>): O objeto de usuário a ser registrado.</p>
+</li></ul>
+
+<p>Comportamento:</p>
+<ul><li>
+<p>Verifica se o usuário já está persistido no banco de dados (‘user.persisted?`).</p>
+</li><li>
+<p>Se o usuário já estiver persistido, chama o ‘UserMailer.new_user_email(user).deliver_later` para enviar um e-mail de boas-vindas assincronamente.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">email:</span> <span class="ruby-string">&#39;example@example.com&#39;</span>, <span class="ruby-value">password:</span> <span class="ruby-string">&#39;password&#39;</span>)
+<span class="ruby-constant">UserRegistrationService</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">user</span>)
+
+<span class="ruby-comment"># Se o usuário for persistido com sucesso, um e-mail de boas-vindas será enviado assincronamente.</span>
+</pre>
 
           <div class="method-source-code" id="call-source">
-            <pre><span class="ruby-comment"># File camaar/app/services/user_registration_services.rb, line 2</span>
+            <pre><span class="ruby-comment"># File camaar/app/services/user_registration_services.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">call</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">persisted?</span>
     <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">new_user_email</span>(<span class="ruby-identifier">user</span>).<span class="ruby-identifier">deliver_later</span>

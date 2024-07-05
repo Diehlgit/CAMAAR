@@ -93,7 +93,7 @@
 
   <section class="description">
     
-<p>controller responsavel pelas acoes relacionadas as disciplinas</p>
+<p>Controller responsável pelas ações relacionadas às disciplinas.</p>
 
   </section>
 
@@ -118,10 +118,10 @@
         </div>
 
         <div class="method-description">
-          <p>POST /disciplinas</p>
+          <p>POST /disciplinas Ação para criar uma nova disciplina com base nos parâmetros recebidos do formulário de criação.</p>
 
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 30</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@disciplina</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">disciplina_params</span>)
 
@@ -147,10 +147,10 @@
         </div>
 
         <div class="method-description">
-          <p>DELETE /disciplinas/1</p>
+          <p>DELETE /disciplinas/1 Ação para excluir uma disciplina existente.</p>
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@disciplina</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">disciplinas_url</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Disciplina foi excluída com sucesso.&#39;</span>
@@ -171,10 +171,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /disciplinas/1/edit</p>
+          <p>GET /disciplinas/1/edit Ação para exibir o formulário de edição de uma disciplina existente.</p>
 
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -193,10 +193,10 @@
         </div>
 
         <div class="method-description">
-          <p>importa os dados de uma disciplina a partir de um arquivo json</p>
+          <p>POST /disciplinas/import Ação para importar dados de disciplinas a partir de um arquivo JSON.</p>
 
           <div class="method-source-code" id="import-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">import</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">post?</span>
     <span class="ruby-identifier">file</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:file</span>]
@@ -211,7 +211,7 @@
 
         <span class="ruby-identifier">class_data</span> = <span class="ruby-identifier">course_data</span>[<span class="ruby-string">&#39;class&#39;</span>]
         <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">find_or_create_by</span>(
-          <span class="ruby-value">docente_id:</span> <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">find_by</span>(),
+          <span class="ruby-value">docente_id:</span> <span class="ruby-constant">Docente</span>.<span class="ruby-identifier">find_by</span>(), <span class="ruby-comment"># Aqui precisa definir como encontrar o docente correto para associar à turma</span>
           <span class="ruby-value">disciplina_id:</span> <span class="ruby-identifier">disciplina</span>.<span class="ruby-identifier">id</span>,
           <span class="ruby-value">class_code:</span> <span class="ruby-identifier">class_data</span>[<span class="ruby-string">&#39;classCode&#39;</span>],
           <span class="ruby-value">semestre:</span> <span class="ruby-identifier">class_data</span>[<span class="ruby-string">&#39;semester&#39;</span>],
@@ -244,10 +244,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /disciplinas</p>
+          <p>GET /disciplinas Ação para listar todas as disciplinas cadastradas.</p>
 
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@disciplinas</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -267,10 +267,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /disciplinas/new</p>
+          <p>GET /disciplinas/new Ação para exibir o formulário de criação de uma nova disciplina.</p>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@disciplina</span> = <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -290,10 +290,10 @@
         </div>
 
         <div class="method-description">
-          <p>GET /disciplinas/1</p>
+          <p>GET /disciplinas/1 Ação para exibir os detalhes de uma disciplina específica.</p>
 
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -312,10 +312,10 @@
         </div>
 
         <div class="method-description">
-          <p>PATCH/PUT /disciplinas/1</p>
+          <p>PATCH/PUT /disciplinas/1 Ação para atualizar os dados de uma disciplina existente com base nos parâmetros recebidos do formulário de edição.</p>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File camaar/app/controllers/disciplinas_controller.rb, line 48</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-keyword">if</span> <span class="ruby-ivar">@disciplina</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">disciplina_params</span>)
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@disciplina</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&#39;Disciplina foi atualizada com sucesso.&#39;</span>

@@ -80,6 +80,8 @@
 
   <section class="description">
     
+<p>Módulo contendo métodos auxiliares para serem usados em toda a aplicação.</p>
+
   </section>
 
   <section id="5Buntitled-5D" class="documentation-section">
@@ -103,12 +105,33 @@
         </div>
 
         <div class="method-description">
-          
+          <p>Cria um link dinâmico para adicionar campos a um formulário usando JavaScript.</p>
+
+<p>Params:</p>
+<ul><li>
+<p><code>name</code> (String): Texto do link.</p>
+</li><li>
+<p><code>f</code> (FormBuilder): Objeto do formulário associado aos campos.</p>
+</li><li>
+<p><code>association</code> (Symbol): Nome da associação com o modelo principal.</p>
+</li><li>
+<p><code>args</code> (Hash): Argumentos opcionais para o link (como classes CSS).</p>
+</li></ul>
+
+<p>Retorna:</p>
+<ul><li>
+<p>String: Um link HTML formatado com atributos data para uso pelo JavaScript.</p>
+</li></ul>
+
+<p>Exemplo de Uso:</p>
+
+<pre class="ruby"><span class="ruby-identifier">link_to_add_fields</span>(<span class="ruby-string">&#39;Adicionar Questão&#39;</span>, <span class="ruby-identifier">form_builder_object</span>, <span class="ruby-value">:questions</span>, <span class="ruby-value">class:</span> <span class="ruby-string">&#39;btn btn-primary&#39;</span>)
+</pre>
 
           <div class="method-source-code" id="link_to_add_fields-source">
-            <pre><span class="ruby-comment"># File camaar/app/helpers/application_helper.rb, line 2</span>
+            <pre><span class="ruby-comment"># File camaar/app/helpers/application_helper.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">link_to_add_fields</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">f</span>, <span class="ruby-identifier">association</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">args</span>)
-  <span class="ruby-comment"># Cria um novo objeto associado ao modelo relacionado (como :questão para @templaate)</span>
+  <span class="ruby-comment"># Cria um novo objeto associado ao modelo relacionado (como :questions para @template)</span>
   <span class="ruby-identifier">new_object</span> = <span class="ruby-identifier">f</span>.<span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">association</span>).<span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span>
 
   <span class="ruby-comment"># Obtém o ID único do objeto para garantir que a chave no array associado seja única</span>
@@ -120,7 +143,7 @@
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-comment"># Cria um link que contém atributos data para serem utilizados pelo JavaScript</span>
-  <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">name</span>, <span class="ruby-string">&quot;#&quot;</span>, <span class="ruby-value">class:</span> <span class="ruby-string">&quot;add_fields&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">:class</span>], <span class="ruby-value">data:</span> { <span class="ruby-value">id:</span> <span class="ruby-identifier">id</span>, <span class="ruby-value">fields:</span> <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;&quot;</span>)})
+  <span class="ruby-identifier">link_to</span>(<span class="ruby-identifier">name</span>, <span class="ruby-string">&quot;#&quot;</span>, <span class="ruby-value">class:</span> <span class="ruby-node">&quot;add_fields #{args[:class]}&quot;</span>, <span class="ruby-value">data:</span> { <span class="ruby-value">id:</span> <span class="ruby-identifier">id</span>, <span class="ruby-value">fields:</span> <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-string">&quot;&quot;</span>) })
 <span class="ruby-keyword">end</span></pre>
           </div>
         </div>
