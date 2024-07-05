@@ -1,4 +1,6 @@
 class PasswordsController < ApplicationController
+  before_action :validate_token, only: [:reset_password]
+
   def create
     user - User.find_by(email: params[:email])
     if @user.present?
@@ -7,13 +9,20 @@ class PasswordsController < ApplicationController
   end
 
   def edit
-    #Current.user - User.find_by(id:session[:user_id])
-    #Rails.application.routes.url_helpers.edit_user_password_path(reset_password_token: user.send (:set_reset_password_token))
+    
   end
 
   def update
     if Current.user.update(password_params)
       redirect_to root_path, notice: "Senha Atualizada!"
+    end
+  end
+
+  def validate_token
+    # Método para validar o token
+    user = User.with_reset_password_token(params[:token])
+    unless user && user.reset_password_period_valid?
+      redirect_to root_path, alert: "Token inválido ou expirado."
     end
   end
 
