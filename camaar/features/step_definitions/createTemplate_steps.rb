@@ -7,6 +7,11 @@ Given(/^I am an admin$/) do
     formacao: "DOUTORADO",
     role: :docente
   )
+
+  @docente = Docente.create!(
+    user_id: @user.id,
+    departamento: "DEPTO CIÊNCIAS DA COMPUTAÇÃO"
+  )
 end
 
 Given(/^I am on the templates page$/) do

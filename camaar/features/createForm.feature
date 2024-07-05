@@ -9,9 +9,7 @@ Feature: create a form
     And I have available templates to choose from
     And I have classes to assign the form to
     When I choose a template
-    And I type the title of all questions
-    And I type the alternatives of all questions
-    And I click on the submit button
+    And I click on the "Criar" button
     Then I should be able to create a form
 
   Scenario: No templates available
