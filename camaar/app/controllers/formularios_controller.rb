@@ -77,8 +77,8 @@ class FormulariosController < ApplicationController
             template: template,
             questao: questao,
             alternativa: alternativa,
-            respostas: 0,
-            respostas_discursivas: ""
+            quantidade_respostas: 0,
+            respostas_discursivas: "aluno, "
           )
         end
       end

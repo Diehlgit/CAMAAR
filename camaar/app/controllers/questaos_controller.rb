@@ -7,14 +7,14 @@ class QuestaosController < ApplicationController
     @questaos = @template.questaos
   end
 
-  # GET /questaos/1
-  def show
-  end
-
   # GET /questaos/new
   def new
     @questao = @template.questaos.build
     @tipos = Tipo.all
+  end
+
+  def show
+
   end
 
   # GET /questaos/1/edit
@@ -27,7 +27,8 @@ class QuestaosController < ApplicationController
     @questao = @template.questaos.build(questao_params)
 
     if @questao.save
-      redirect_to @questao, notice: 'Questao was successfully created.'
+      #redirect_to @questao, notice: 'Questao was successfully created.'
+      redirect_to edit_template_path(@template)
     else
       render :new
     end
@@ -44,19 +45,14 @@ class QuestaosController < ApplicationController
 
   # DELETE /questaos/1
   def destroy
-    @questao = Questao.find(params[:id])
-    @template = @questao.template # Para usar na reconstrução do template após a exclusão
-
     if @questao.destroy
       redirect_to edit_template_path(@template), notice: 'Questão excluída com sucesso.'
     else
-      # Lógica de tratamento caso a exclusão falhe
       redirect_to edit_template_path(@template), alert: 'Erro ao excluir a questão.'
     end
   end
 
   private
-
     def get_template
       @template = Template.find(params[:template_id])
     end

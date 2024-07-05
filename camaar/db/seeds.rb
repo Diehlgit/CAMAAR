@@ -24,6 +24,13 @@ usuarios = [
   formacao: "graduando",
   role: :dicente},
 
+  {nome: "ciclano",
+  email: "ciclano@unb.br",
+  password: 'senha123',
+  usuario: "000002",
+  formacao: "graduando",
+  role: :dicente},
+
   {nome: "administrador",
   email: "adm@unb.br",
   password: 'o_adm_123',
@@ -56,8 +63,6 @@ usuarios.each do |user_data|
   end
 end
 
-  Dicente.find_by(user_id: User.find_by(nome: "fulano"))
-
   turma1 = Turma.create!(
     semestre: '2024.2',
     horario: '24M12',
@@ -67,19 +72,11 @@ end
     docente: Docente.find_by(user_id: User.find_by(nome: "administrador").id)
   )
 
-  turma2 = Turma.create!(
-    semestre: '2024.2',
-    horario: '24T34',
-    class_code: 'VA',
-    codigo: 'CIC097',
-    disciplina: Disciplina.find_by(nome: "Introdução ao Cálculo"),
-    docente: Docente.find_by(user_id: User.find_by(nome: "administrador").id)
-  )
-
   fulano = Dicente.find_by(user_id: User.find_by(nome: "fulano"))
+  ciclano = Dicente.find_by(user_id: User.find_by(nome: "ciclano"))
 
   fulano.turmas << turma1
-  fulano.turmas << turma2
+  ciclano.turmas << turma1
   #turma1.dicentes << fulano
 
   template1 = Template.create!(
@@ -87,24 +84,25 @@ end
     docente: Docente.find_by(user_id: User.find_by(nome: "administrador")),
     questaos_attributes: [
       {
-        pergunta: 'você confirma?',
+        pergunta: 'você está cursando Engenharia de Software?',
         tipo: Tipo.find_by(nome: 'confirmação'),
         alternativas_attributes: [
-          {texto: "confirmo"}
+          {texto: "sim, estou"}
         ]
       },
       {
-        pergunta: 'Esta é uma questão de múltipla escolha?',
-        tipo: Tipo.find_by(nome: 'múltipla escolha'),
+        pergunta: 'Qual a sua opinião sobre o projeto da matéria',
+        tipo: Tipo.find_by(nome: 'satisfação'),
         alternativas_attributes: [
-          {texto: "sim"},
-          {texto: "si"},
-          {texto: "yes"},
-          {texto: "oui"}
+          {texto: "Muito Bom"},
+          {texto: "Bom"},
+          {texto: "Normal"},
+          {texto: "Ruim"},
+          {texto: "Muito Ruim"}
           ]
         },
         {
-          pergunta: 'qual a sua opinião?',
+          pergunta: 'Tem algo a adicionar?',
           tipo: Tipo.find_by(nome: 'aberta')
         }
       ]
@@ -130,7 +128,7 @@ end
           template: template,
           questao: questao,
           alternativa: alternativa,
-          respostas: 0,
+          quantidade_respostas: 0,
           respostas_discursivas: "aluno, "
         )
       end

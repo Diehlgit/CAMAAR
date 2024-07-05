@@ -1,12 +1,32 @@
+<%= stylesheet_link_tag "edit" %>
 <body>
-    <h1><%= @template.nome %></h1>
+    <div class='edit'>
+        <div class='titulo'>
+                <%= @template.nome %>
+        </div>
 
-    <% @template.questaos.each do |questao| %>
-        <h2><%= questao.pergunta %></h2>
-        <ul>
-            <% questao.alternativas.each do |alternativa| %>
-                <li><%= alternativa.texto %></li>
+        <h2>Questões</h2>
+        <div class='questaos-container'>
+            <% @template.questaos.each do |questao| %>
+                <div class='questao'>
+                    <div class='questao-pergunta'>
+                        <h2><%= questao.pergunta %></h2>
+                    </div>
+
+                    <div class='alternativas-container'>
+                        <ul>
+                            <% questao.alternativas.each do |alternativa| %>
+                                <div class='alternativa'>
+                                    <li><%= alternativa.texto %></li>
+                                </div>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
             <% end %>
-        </ul>
-    <% end %>
+        </div>
+        <div class='buttons'>
+            <%= link_to "Voltar para Home Docente", home_docente_path, class: 'btn btn-secondary' %>
+        </div>
+    </div>
 </body>

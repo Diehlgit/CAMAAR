@@ -4,6 +4,6 @@ class Resultado < ApplicationRecord
   belongs_to :questao
   belongs_to :alternativa, optional: true
 
-  validates :respostas, presence: true, numericality: { only_integer: true }
+  validates :quantidade_respostas, presence: true, numericality: { only_integer: true }
   validates :respostas_discursivas, presence: true
 end

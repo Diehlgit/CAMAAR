@@ -80,7 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
     t.integer "template_id", null: false
     t.integer "questao_id", null: false
     t.integer "alternativa_id"
-    t.integer "respostas", default: 0
+    t.integer "quantidade_respostas", default: 0
     t.text "respostas_discursivas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_210943) do
   create_table "turmas", force: :cascade do |t|
     t.string "class_code", null: false
     t.string "semestre", null: false
-    t.string "horario", null: false
+    t.string "horario"
     t.string "codigo", null: false
     t.integer "disciplina_id", null: false
     t.integer "docente_id"

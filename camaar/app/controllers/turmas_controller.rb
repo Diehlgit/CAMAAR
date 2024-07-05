@@ -56,17 +56,11 @@ class TurmasController < ApplicationController
       if file
         data = JSON.parse(file.read)
         data.each do |class_data|
-          turma = Turma.find_or_create_by(
-            codigo: class_data['code'],
-            class_code: class_data['classCode'],
-            semester: class_data['semester']
-          )
-
           instructor_data = class_data['docente']
           user_docente = User.create!(
             nome: instructor_data['nome'],
             email: instructor_data['email'],
-            password: '',
+            password: 'administrador1234',
             usuario: instructor_data['usuario'],
             formacao: instructor_data['formacao'],
             role: :docente
@@ -75,8 +69,15 @@ class TurmasController < ApplicationController
             user_id: user_docente.id,
             departamento: instructor_data['departamento']
           )
-          turma.docente = user_docente
 
+          turma_criada = Turma.find_or_create_by(
+            codigo: class_data['code'],
+            class_code: class_data['classCode'],
+            semestre: class_data['semester'],
+            docente: user_docente.docente,
+            horario: class_data['time'],
+            disciplina: Disciplina.find_by(codigo: class_data['code'] ),
+          )
           class_data['dicente'].each do |student_data|
             user_dicente = User.create!(
               nome: student_data['nome'],
@@ -92,8 +93,8 @@ class TurmasController < ApplicationController
               matricula: student_data['matricula'],
             )
             # Associa o dicente à turma
-            turma.dicentes << user_dicente
-            user_dicente.turmas << turma
+            #turma_criada.dicentes << user_dicente
+            user_dicente.turmas << turma_criada
           end
         end
 

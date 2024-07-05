@@ -7,7 +7,6 @@ class Turma < ApplicationRecord
 
   validates :class_code, presence: true;
   validates :semestre, presence: true;
-  validates :horario, presence: true;
   validates :codigo, presence: true;
 
 end
