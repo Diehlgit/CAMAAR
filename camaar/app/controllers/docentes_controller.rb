@@ -1,25 +1,32 @@
+##
+# controller responsavel pelas acoes relacionadas aos docentes
 class DocentesController < ApplicationController
   before_action :set_docente, only: [:show, :edit, :update, :destroy]
 
+  ##
   # GET /docentes
   def index
     @docentes = Docente.all
   end
 
+  ##
   # GET /docentes/1
   def show
   end
 
+  ##
   # GET /docentes/new
   def new
     @docente = Docente.new
     @user = User.new
   end
 
+  ##
   # GET /docentes/1/edit
   def edit
   end
 
+  ##
   # POST /docentes
   def create
     @user = User.new(user_params)
@@ -33,6 +40,7 @@ class DocentesController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /docentes/1
   def update
     if @docente.update(docente_params)
@@ -42,6 +50,7 @@ class DocentesController < ApplicationController
     end
   end
 
+  ##
   # DELETE /docentes/1
   def destroy
     @docente.destroy

@@ -1,3 +1,5 @@
+##
+# resultados de uma avaliacao/formulario
 class Resultado < ApplicationRecord
   belongs_to :formulario
   belongs_to :template

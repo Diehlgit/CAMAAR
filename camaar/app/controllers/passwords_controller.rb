@@ -1,3 +1,5 @@
+##
+# controller responsavel pelas acoes relacionadas a senha dos usuarios
 class PasswordsController < ApplicationController
   def create
     user - User.find_by(email: params[:email])

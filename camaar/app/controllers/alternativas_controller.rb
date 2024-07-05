@@ -1,26 +1,33 @@
+##
+# controller responsavel pelas acoes relacionadas as alternativas
 class AlternativasController < ApplicationController
   before_action :set_template
   before_action :set_questao
   before_action :set_alternativa, only: [:edit, :update, :destroy]
 
+  ##
   # GET /alternativas
   def index
     @alternativas = @questao.alternativas
   end
 
+  ##
   # GET /alternativas/1
   def show
   end
 
+  ##
   # GET /alternativas/new
   def new
     @alternativa = @questao.alternativas.build
   end
 
+  ##
   # GET /alternativas/1/edit
   def edit
   end
 
+  ##
   # POST /alternativas
   def create
     @alternativa = @questao.alternativas.build(alternativa_params)
@@ -32,6 +39,7 @@ class AlternativasController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /alternativas/1
   def update
     if @alternativa.update(alternativa_params)
@@ -41,6 +49,7 @@ class AlternativasController < ApplicationController
     end
   end
 
+  ##
   # DELETE /alternativas/1
   def destroy
     @alternativa.destroy

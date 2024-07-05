@@ -1,3 +1,5 @@
+##
+# controller responsavel pelas acoes relacionadas aos discentes
 class DicentesController < ApplicationController
   before_action :set_dicente, only: [:show, :edit, :update, :destroy]
 

@@ -1,6 +1,10 @@
+##
+# controller responsavel pelas acoes relacionadas aos templates
 class TemplatesController < ApplicationController
   before_action :set_template, only: [:show, :edit, :update, :destroy]
 
+  ##
+  # procura um template pelo nome
   def search
     @template = Template.find_by(nome: params[:nome])
     if @template
@@ -10,16 +14,19 @@ class TemplatesController < ApplicationController
     end
   end
 
+  ##
   # GET /templates
   def index
     @templates = Template.all
   end
 
+  ##
   # GET /templates/1
   def show
 
   end
 
+  ##
   # GET /templates/new
   def new
     @template = Template.new
@@ -27,11 +34,13 @@ class TemplatesController < ApplicationController
     questao.alternativas.build
   end
 
+  ##
   # GET /templates/1/edit
   def edit
 
   end
 
+  ##
   # POST /templates
   def create
     @template = Template.new(template_params)
@@ -44,6 +53,7 @@ class TemplatesController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /templates/1
   def update
     if @template.update(template_params)

@@ -1,25 +1,31 @@
-# app/controllers/disciplinas_controller.rb
+##
+# controller responsavel pelas acoes relacionadas as disciplinas
 class DisciplinasController < ApplicationController
   before_action :set_disciplina, only: [:show, :edit, :update, :destroy]
 
+  ##
   # GET /disciplinas
   def index
     @disciplinas = Disciplina.all
   end
 
+  ##
   # GET /disciplinas/1
   def show
   end
 
+  ##
   # GET /disciplinas/new
   def new
     @disciplina = Disciplina.new
   end
 
+  ##
   # GET /disciplinas/1/edit
   def edit
   end
 
+  ##
   # POST /disciplinas
   def create
     @disciplina = Disciplina.new(disciplina_params)
@@ -31,6 +37,7 @@ class DisciplinasController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /disciplinas/1
   def update
     if @disciplina.update(disciplina_params)
@@ -40,12 +47,15 @@ class DisciplinasController < ApplicationController
     end
   end
 
+  ##
   # DELETE /disciplinas/1
   def destroy
     @disciplina.destroy
     redirect_to disciplinas_url, notice: 'Disciplina foi excluída com sucesso.'
   end
 
+  ##
+  # importa os dados de uma disciplina a partir de um arquivo json
   def import
     if request.post?
       file = params[:file]
@@ -79,11 +89,13 @@ class DisciplinasController < ApplicationController
   end
 
   private
+    ##
     # Use callbacks to share common setup or constraints between actions.
     def set_disciplina
       @disciplina = Disciplina.find(params[:id])
     end
 
+    ##
     # Only allow a trusted parameter "white list" through.
     def disciplina_params
       params.require(:disciplina).permit(:codigo, :nome)

@@ -1,3 +1,5 @@
+##
+# controller responsavel pelas acoes relacionadas aos tipos de um formulario
 class TiposController < ApplicationController
   def index
     @tipos = Tipo.all

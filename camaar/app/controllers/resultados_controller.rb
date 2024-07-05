@@ -1,3 +1,5 @@
+##
+# controller responsavel pelas acoes relacionadas aos resultados de um formulario
 class ResultadosController < ApplicationController
   before_action :set_resultado, only: [:show, :edit, :update]
   def new

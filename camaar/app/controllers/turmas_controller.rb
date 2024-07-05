@@ -1,3 +1,5 @@
+##
+# controller responsavel pelas acoes relacionadas a turma
 class TurmasController < ApplicationController
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
 
@@ -14,12 +16,14 @@ class TurmasController < ApplicationController
     @docentes = User.where(type: 'Docente')
   end
 
+  ##
   # GET /turmas/1/edit
   def edit
     @disciplinas = Disciplina.all
     @docentes = User.where(type: 'Docente')
   end
 
+  ##
   # POST /turmas
   def create
     @turma = Turma.new(turma_params)
@@ -33,6 +37,7 @@ class TurmasController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /turmas/1
   def update
     if @turma.update(turma_params)
@@ -49,6 +54,8 @@ class TurmasController < ApplicationController
     redirect_to turmas_url, notice: 'Turma excluída com sucesso.'
   end
 
+  ##
+  # importa os dados de uma turma a partir de um json
   def import
     if request.post?
       file = params[:file]
@@ -92,6 +99,7 @@ class TurmasController < ApplicationController
               curso: student_data['curso'],
               matricula: student_data['matricula'],
             )
+            ##
             # Associa o dicente à turma
             #turma_criada.dicentes << user_dicente
             user_dicente.turmas << turma_criada

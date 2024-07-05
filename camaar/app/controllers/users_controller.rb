@@ -1,23 +1,30 @@
+##
+# controller responsavel pelas acoes relacionadas ao user
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  ##
   # GET /users
   def index
     @users = User.all
   end
 
+  ##
   # GET /users/:id
   def show
     @user = User.find(params[:id])
   end
 
+  ##
   # GET /users/new
   def new
     @user = User.new
   end
 
+  ##
   # POST /users
   def create
+    ##
     # Determine qual tipo de usuário está sendo criado com base nos parâmetros
     if user_params[:type] == 'Docente'
       @user = Docente.new(user_params.except(:type, :matricula, :curso))
@@ -34,11 +41,13 @@ class UsersController < ApplicationController
     end
   end
 
+  ##
   # GET /users/:id/edit
   def edit
     @user = User.find(params[:id])
   end
 
+  ##
   # PATCH/PUT /users/:id
   def update
     @user = User.find(params[:id])
@@ -49,6 +58,7 @@ class UsersController < ApplicationController
     end
   end
 
+  ##
   # DELETE /users/:id
   def destroy
     @user = User.find(params[:id])

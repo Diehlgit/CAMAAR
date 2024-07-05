@@ -1,25 +1,32 @@
+##
+# controller responsavel pelas acoes relacionadas aos formularios
 class FormulariosController < ApplicationController
   before_action :set_formulario, only: [:show, :edit, :update, :destroy]
   before_action :set_turmas_and_templates, only: [:new, :create]
 
+  ##
   # GET /formularios
   def index
     @formularios = Formulario.all
   end
 
+  ##
   # GET /formularios/1
   def show
   end
 
+  ##
   # GET /formularios/new
   def new
     @formulario = Formulario.new
   end
 
+  ##
   # GET /formularios/1/edit
   def edit
   end
 
+  ##
   # POST /formularios
   def create
     @formulario = Formulario.new(formulario_params)
@@ -32,6 +39,7 @@ class FormulariosController < ApplicationController
     end
   end
 
+  ##
   # PATCH/PUT /formularios/1
   def update
     if @formulario.update(formulario_params)
@@ -42,6 +50,7 @@ class FormulariosController < ApplicationController
     end
   end
 
+  ##
   # DELETE /formularios/1
   def destroy
     @formulario.destroy
