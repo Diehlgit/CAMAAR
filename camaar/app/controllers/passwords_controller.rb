@@ -1,6 +1,8 @@
 ##
 # Controller responsável pelas ações relacionadas à senha dos usuários.
 class PasswordsController < ApplicationController
+
+  before_action :validate_token, only: [:reset_password]
   ##
   # POST /passwords
   # Ação para enviar um email de redefinição de senha para o usuário com o email fornecido.
@@ -27,8 +29,9 @@ class PasswordsController < ApplicationController
   # a intenção de redirecionar para a página de edição de senha do usuário, utilizando um método
   # de reset de senha. Contudo, isso não está implementado no código atual.
   def edit
+
     # As linhas comentadas sugerem uma intenção de redirecionar para a página de edição de senha,
-    # mas não estão implementadas.
+    # mas não estão implementadas
   end
 
   ##
@@ -46,6 +49,14 @@ class PasswordsController < ApplicationController
       redirect_to root_path, notice: "Senha Atualizada!"
     end
     # Falta tratamento para o caso de falha na atualização da senha.
+  end
+
+  def validate_token
+    # Método para validar o token
+    user = User.with_reset_password_token(params[:token])
+    unless user && user.reset_password_period_valid?
+      redirect_to root_path, alert: "Token inválido ou expirado."
+    end
   end
 
   private

@@ -5,7 +5,7 @@
 <body>
   <div class="container">
     <div class="white-section">
-      <h1>ALTERAÇÃO DE SENHA</h1>
+      <h1>MUDAR SENHA</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="input-container">
           <%= f.label :password, "Senha" %>
@@ -13,7 +13,7 @@
         </div>
         <div class="input-container">
           <%= f.label :password_confirmation, "Confirme a Senha" %>
-          <%= f.email_field :password_confirmation, class: "input-field", placeholder: "Password" %>
+          <%= f.password_field :password_confirmation, class: "input-field", placeholder: "Confirm Password" %>
         </div>
         <div class="actions">
           <%= f.submit "Alterar Senha", class: "button" %>

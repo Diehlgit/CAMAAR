@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
     get 'users/change_password', to: 'devise/passwords#edit', as: :change_password
+    # Define a rota para mudança de senha com token
+    get 'users/change_password/:token', to: 'devise/passwords#edit', as: :password_reset
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
