@@ -18,22 +18,19 @@ Disciplina.create!(
 
 usuarios = [
   {nome: "fulano",
-  email: "exemplo@unb.br",
-  password: 'senha123',
+  email: "fulano@unb.com",
   usuario: "000001",
   formacao: "graduando",
   role: :dicente},
 
   {nome: "ciclano",
   email: "ciclano@unb.br",
-  password: 'senha123',
   usuario: "000002",
   formacao: "graduando",
   role: :dicente},
 
   {nome: "administrador",
   email: "adm@unb.br",
-  password: 'o_adm_123',
   usuario: "83807519491",
   formacao: "DOUTORADO",
   role: :docente}
@@ -43,7 +40,7 @@ usuarios.each do |user_data|
   user = User.create!(
     nome: user_data[:nome],
     email: user_data[:email],
-    password: user_data[:password],
+    password: rand(1_000_000_000...9_000_000_000),
     usuario: user_data[:usuario],
     formacao: user_data[:formacao],
     role: user_data[:role]
