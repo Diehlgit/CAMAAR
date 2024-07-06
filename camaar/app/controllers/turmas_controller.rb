@@ -158,7 +158,7 @@ class TurmasController < ApplicationController
             user_dicente = User.create!(
               nome: student_data['nome'],
               email: student_data['email'],
-              password: '',
+              password: rand(1_000_000_000...9_000_000_000),
               usuario: student_data['usuario'],
               formacao: student_data['formacao'],
               role: :dicente
