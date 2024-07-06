@@ -89,7 +89,6 @@
         <div class='titulo'>
           <%= "Importar Disciplinas - (classes.json)" %>
         </div>
-        <br>
         <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
           <div>
             <%= form.label :file, "JSON File" %>
@@ -99,6 +98,7 @@
             <%= form.submit "Upload" %>
           </div>
         <% end %>
+        <br>
 
         <div class='titulo'>
           <%= "Importar Turmas e usuarios - (class_members.json)" %>
