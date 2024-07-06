@@ -1,4 +1,5 @@
-# disciplina.rb
+##
+# disciplina de um departamento
 class Disciplina < ApplicationRecord
   has_many :turmas, dependent: :destroy
 

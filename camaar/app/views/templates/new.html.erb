@@ -2,24 +2,29 @@
 <body>
   <div class='edit-container'>
     <div class='titulo'>
-       Criar Novo Template
+      <%= "Criar Novo Template" %>
     </div>
     <div class='criar-template'>
       <%= form_with model: @template, method: :post, local: true do |template_form| %>
-        <%= template_form.label :nome, "Nome do Template:", class: 'label-field' %>
-        <%= template_form.text_field :nome, class: 'text-field' %>
+        <%= template_form.label :nome, "Nome do Template:" %>
+        <%= template_form.text_field :nome %>
 
+        <!--<h2>Adicionar Questões</h2>
         <div class='criar-questao'>
           <%= template_form.fields_for :questaos do |questao_form| %>
             <%= render "questao_fields", f: questao_form %>
           <% end %>
-          <%= link_to_add_fields("Adicionar Questão", template_form, :questaos, class:'') %> <%#quando calcula a classe disso faz 'add_fields' + :class em algum lugar!?%>
+          <div class='buttons'>
+            <%= link_to_add_fields("+", template_form, :questaos, class:'add_fields') %>
+            <%= link_to "", '#', class: "remove_fields", class: "trash-button" %>
+          </div>
+        </div>-->
+
+        <div class='buttons'>
+          <%= template_form.submit "Criar Template", class: 'btn btn-success' %>
+          <%= link_to "Voltar para Home Docente", home_docente_path, class: "btn btn-secondary" %>
         </div>
-        <%= template_form.submit "Criar Template", class: 'btn btn-success' %>
       <% end %>
-    </div>
-    <div class='buttons'>
-      <%= link_to "Voltar para Home Docente", home_docente_path, class: "btn btn-secondary" %>
     </div>
   </div>
 </body>

@@ -1,3 +1,5 @@
+##
+# avaliacao/formulario feito para uma turma de um docente
 class Formulario < ApplicationRecord
   belongs_to :docente
   belongs_to :template
@@ -14,6 +16,8 @@ class Formulario < ApplicationRecord
 
   private
 
+  ##
+  # verifica se a data de termino eh valida
   def dataDeTermino_in_future
     if dataDeTermino && dataDeTermino <= Date.today
       errors.add(:dataDeTermino, "deve ser uma data futura")

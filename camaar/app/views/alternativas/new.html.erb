@@ -1,0 +1,11 @@
+<body>
+    <%= form_with(model: [@template, @questao, @alternativa], local: true) do |alternativa_form| %>
+        <%= alternativa_form.label :texto, "Texto da Alternativa: " %>
+        <%= alternativa_form.text_field :texto %>
+
+        <div class="buttons">
+            <%= alternativa_form.submit "Criar Alternativa", class: 'btn btn-success' %>
+            <%= link_to "Voltar para Edit Template", edit_template_path(@template), class: "btn btn-secondary" %>
+        </div>
+    <% end %>
+</body>

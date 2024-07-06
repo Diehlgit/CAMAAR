@@ -14,9 +14,9 @@
       </div>
     </div>
 
-    <span class="header-text">Gerenciamento - Templates</span>
+    <span class="header-text">Gerenciamento - Formularios - Templates</span>
 
-    <%= form_tag(templates_path, method: "get", class: "search-bar") do %>
+    <%= form_tag(search_templates_path, method: "get", class: "search-bar") do %>
         <%= text_field_tag :nome, params[:nome], placeholder: "Buscar por nome do template", class: "search-bar-input" %>
         <%= submit_tag "&#128269;".html_safe, class: "search-icon" %>
     <% end %>
@@ -42,7 +42,7 @@
             <div class="professor"><%= template.docente.user.nome.capitalize %></div>
             <div class="templates-buttonbox">
               <%= link_to "", edit_template_path(template), method: :patch, class: "edit-button" %>
-              <%= link_to "", home_docente_path, method: :delete, class: "trash-button" %>
+              <%= button_to "", template_path(template), method: :delete, class: "trash-button" %>
             </div>
           </div>
         <% end %>
@@ -64,8 +64,8 @@
             <% end %>
             <div class="professor"><%= formulario.docente.user.nome.capitalize %></div>
             <div class="templates-buttonbox">
-              <%= link_to "resultados", formulario_path(formulario)%>
-              <%= link_to "", home_docente_path, method: :delete, class: "trash-button" %>
+              <%= link_to "resultados ", formulario_path(formulario)%>
+              <%= link_to "", formulario_path(formulario), method: :delete, class: "trash-button" %>
             </div>
           </div>
         <% end %>
@@ -80,13 +80,13 @@
     <div class="management-contents" id="managementContents"  style="display: none;">
       <div class="button-box">
         <button type="button" class="button" id="btnImportarDados">Importar dados</button>
-        <button type="button" class="button" id="btnAddQuestao">Adicionar Questão</button>
-        <!--<button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>-->
-        <!--<button type="button" class="button" id="btnVerResultados">Resultados</button>-->
+        <button type="button" class="button" id="btnAddQuestao">Deletar Questão</button>
+        <!--<button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>
+        <button type="button" class="button" id="btnVerResultados">Resultados</button>-->
       </div>
 
       <div class="editor-box" id="ImportarDados" style="display: none;">
-        <h1>Importar Disciplinas</h1>
+        <h1>Importar Disciplinas - (classes.json)</h1>
 
         <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
           <div>
@@ -98,7 +98,7 @@
           </div>
         <% end %>
 
-        <h1>Importar Turmas</h1>
+        <h1>Importar Turmas e usuarios - (class_members.json)</h1>
 
         <%= form_with url: import_turmas_path, local: true, method: :post, multipart: true do |form| %>
           <div>
@@ -112,7 +112,7 @@
       </div>
 
       <div class="editor-box" id="AdicionarQuestao" style="display: none;">
-      
+        
       </div>
 
       <div class="editor-box" id="CriarFormularios" style="display: none;">
