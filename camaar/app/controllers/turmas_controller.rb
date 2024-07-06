@@ -170,7 +170,7 @@ class TurmasController < ApplicationController
             )
             ##
             # Associa o dicente à turma
-            user_dicente.turmas << turma_criada
+            user_dicente.dicente.turmas << turma_criada
           end
         end
 
