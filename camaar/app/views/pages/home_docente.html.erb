@@ -80,14 +80,16 @@
     <div class="management-contents" id="managementContents"  style="display: none;">
       <div class="button-box">
         <button type="button" class="button" id="btnImportarDados">Importar dados</button>
-        <button type="button" class="button" id="btnAddQuestao">Deletar Questão</button>
-        <!--<button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>
+        <!--<button type="button" class="button" id="btnAddQuestao">Deletar Questão</button>
+        <button type="button" class="button" id="btnCriarFormularios">Criar Formulários</button>
         <button type="button" class="button" id="btnVerResultados">Resultados</button>-->
       </div>
 
-      <div class="editor-box" id="ImportarDados" style="display: none;">
-        <h1>Importar Disciplinas - (classes.json)</h1>
-
+       <div class="editor-box" id="ImportarDados" style="display: none;">
+        <div class='titulo'>
+          <%= "Importar Disciplinas - (classes.json)" %>
+        </div>
+        <br>
         <%= form_with url: import_disciplinas_path, local: true, method: :post, multipart: true do |form| %>
           <div>
             <%= form.label :file, "JSON File" %>
@@ -98,7 +100,9 @@
           </div>
         <% end %>
 
-        <h1>Importar Turmas e usuarios - (class_members.json)</h1>
+        <div class='titulo'>
+          <%= Importar Turmas e usuarios - (class_members.json) %>
+        </div>
 
         <%= form_with url: import_turmas_path, local: true, method: :post, multipart: true do |form| %>
           <div>
