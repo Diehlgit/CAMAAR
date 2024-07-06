@@ -78,7 +78,6 @@ class DisciplinasController < ApplicationController
 
           class_data = course_data['class']
           Turma.find_or_create_by(
-            docente_id: Docente.find_by(), # Aqui precisa definir como encontrar o docente correto para associar à turma
             disciplina_id: disciplina.id,
             class_code: class_data['classCode'],
             semestre: class_data['semester'],
